@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon/store/normal</title>
+    <defs>
+        <path d="M18.5362994,20.9436618 C19.0234199,20.4553978 19.5854753,20.2112679 20.2224831,20.2112679 C20.8594865,20.2112679 21.4121762,20.4553978 21.8805608,20.9436618 C22.3489497,21.4319271 22.5831377,21.995302 22.5831377,22.6338029 C22.5831377,23.2723035 22.3489497,23.8262888 21.8805608,24.2957747 C21.4121762,24.7652606 20.8594865,25 20.2224831,25 C19.5854753,25 19.0234199,24.7652606 18.5362994,24.2957747 C18.0491789,23.8262888 17.8056208,23.2723035 17.8056208,22.6338029 C17.8056208,21.995302 18.0491789,21.4319271 18.5362994,20.9436618 Z M1,1 L4.93442636,1 L6.0585468,3.3661962 L23.8196727,3.3661962 C24.1569103,3.3661962 24.4379359,3.48825893 24.6627624,3.73239312 C24.8875889,3.97652732 25,4.26760469 25,4.60563397 C25,4.7934285 24.9437923,4.98121865 24.8313812,5.16901318 L20.5597207,12.9436603 C20.1100676,13.769958 19.4168652,14.1830981 18.4800916,14.1830981 L9.54332533,14.1830981 L8.47540912,16.1549297 L8.4192014,16.3239444 C8.4192014,16.5117389 8.51288094,16.605634 8.70023565,16.605634 L22.5831377,16.605634 L22.5831377,19.0281698 L8.19437923,19.0281698 C7.55737581,19.0281698 7.00468616,18.78404 6.53630155,18.295776 C6.06791258,17.8075076 5.83372463,17.2441327 5.83372463,16.605634 C5.83372463,16.2300449 5.92739981,15.8544602 6.11475453,15.4788712 L7.74473053,12.4929561 L3.41686188,3.3661962 L1,3.3661962 L1,1 Z M6.50819551,20.9436618 C6.99532038,20.4553978 7.55737581,20.2112679 8.19437923,20.2112679 C8.83138265,20.2112679 9.39343807,20.4553978 9.88056295,20.9436618 C10.3676835,21.4319271 10.6112415,21.995302 10.6112415,22.6338029 C10.6112415,23.2723035 10.3676835,23.8262888 9.88056295,24.2957747 C9.39343807,24.7652606 8.83138265,25 8.19437923,25 C7.55737581,25 7.00468616,24.7652606 6.53630155,24.2957747 C6.06791258,23.8262888 5.83372463,23.2723035 5.83372463,22.6338029 C5.83372463,21.995302 6.0585468,21.4319271 6.50819551,20.9436618 Z" id="path-1"></path>
+        <filter x="-2.1%" y="-2.1%" width="104.2%" height="104.2%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.18 0" type="matrix" in="shadowInnerInner1" result="shadowMatrixInner1"></feColorMatrix>
+            <feOffset dx="0" dy="-1" in="SourceAlpha" result="shadowOffsetInner2"></feOffset>
+            <feComposite in="shadowOffsetInner2" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner2"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0" type="matrix" in="shadowInnerInner2" result="shadowMatrixInner2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixInner1"></feMergeNode>
+                <feMergeNode in="shadowMatrixInner2"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="icon/store/normal" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Fill-1">
+            <use fill="#828282" fill-rule="evenodd" xlink:href="#path-1"></use>
+            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>
