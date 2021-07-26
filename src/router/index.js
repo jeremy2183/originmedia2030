@@ -17,15 +17,18 @@ const router = new VueRouter({
   routes: [
     {
       path: '*',
-      redirect: 'Login',
+      redirect: 'login',
     },
     {
       path: '/login',
       name: 'Login',
       component: Login,
+      meta: {
+        requiresPath: true,
+      },
     },
     {
-      path: '/',
+      path: '/origin',
       name: 'Dashboard',
       component: () => import('@/components/Dashboard'),
       children: [

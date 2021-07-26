@@ -8,11 +8,14 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { dom } from '@fortawesome/fontawesome-svg-core';
+import VueYoutube from 'vue-youtube';
 
 Vue.config.productionTip = false;
 library.add(fas, fab);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 dom.watch();
+Vue.use(VueYoutube);
+
 new Vue({
   router,
   store,

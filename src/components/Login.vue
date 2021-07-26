@@ -1,7 +1,18 @@
 <template>
   <div class="login">
     <div class="top">
-      <div class="youtube"></div>
+      <div class="youtube">
+        <youtube
+          :video-id="videoId"
+          :host="host"
+          :player-vars="playerVars"
+          width="637.63"
+          height="362"
+          :resize="true"
+          :fitParent="true"
+          @ready="ready"
+        ></youtube>
+      </div>
       <div class="logoBox">
         <div class="logo"></div>
         <p>OriginMedia2030- get subscribers, views and likes</p>
@@ -60,11 +71,22 @@
 <script>
   export default {
     data() {
-      return {};
+      return {
+        videoId: '7Vc6oQ3HliQ',
+        host: 'https://www.youtube.com',
+        playerVars: {
+          autoplay: 0,
+          controls: 0,
+          start: 0,
+        },
+      };
     },
     methods: {
       login() {
         this.$router.push('/home');
+      },
+      ready() {
+        // this.$refs.youtube.player.playVideo();
       },
     },
   };
@@ -81,7 +103,6 @@
       .youtube {
         width: 637.63px;
         height: 362px;
-        border: 1px solid white;
       }
       .logoBox {
         margin-left: 7%;
