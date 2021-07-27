@@ -22,7 +22,7 @@
     </div>
     <div class="bottom">
       <div class="box">
-        <div>
+        <div @click="toAndroid">
           <figure>
             <img
               src="@/assets/images/android.svg"
@@ -31,7 +31,7 @@
           </figure>
           <p>Android Download</p>
         </div>
-        <div>
+        <div @click="toIOS">
           <figure>
             <img
               src="@/assets/images/apple.svg"
@@ -40,7 +40,7 @@
           </figure>
           <p>IOS Download</p>
         </div>
-        <div>
+        <div @click="toWindow">
           <figure>
             <img
               src="@/assets/images/windows.svg"
@@ -84,6 +84,15 @@
     methods: {
       login() {
         this.$router.push('/home');
+      },
+      toAndroid() {
+        location.href = 'https://play.google.com/store/apps/details?id=com.originmedia2030';
+      },
+      toIOS() {
+        location.href = 'https://www.facebook.com/groups/3108879035836663/?ref=share';
+      },
+      toWindow() {
+        location.href = 'https://www.facebook.com/101941984887648/posts/101952758219904/?d=n';
       },
       ready() {
         // this.$refs.youtube.player.playVideo();
