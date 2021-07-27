@@ -38,7 +38,7 @@
           >
             <div
               class="complete"
-              @click="completed"
+              @click="removeYoutu"
             >
               <div class="icon"></div>
               <div class="text">完成</div>
@@ -72,12 +72,14 @@
             <div
               class="garbage"
               v-if="editState"
-              @click="removeYoutu(youtu)"
+              @click="selectYoutu(youtu)"
             >
-              <i
-                class="fas fa-trash-alt"
-                :class="{'active ': youtu.completed}"
-              ></i>
+              <div v-show="!youtu.completed">
+                <i class="fas fa-trash-alt gray"></i>
+              </div>
+              <div v-show="youtu.completed">
+                <i class="fas fa-trash-alt red"></i>
+              </div>
             </div>
           </div>
         </div>
@@ -167,10 +169,33 @@
       cancle() {
         this.editState = false;
       },
-      removeYoutu(item) {
+      selectYoutu(item) {
         console.log('item: ', item);
         item.completed = !item.completed;
       },
+      removeYoutu() {
+        // this.youtube.forEach(function(item, index, arr) {
+        //   if (item.completed === true) {
+        //     arr.splice(index, );
+        //   }
+        // });
+
+        var newIndex = this.youtube.findIndex(item => item.completed === true);
+        if (newIndex == -1) {
+          alert('請選擇要刪除的項目');
+          this.editState = false;
+          return;
+        }
+        this.youtube.splice(newIndex, 1);
+        this.editState = false;
+      },
+    },
+    computed: {
+      // selectNow() {
+      //   return this.youtube.forEach(item => {
+      //     return item.completed;
+      //   });
+      // },
     },
   };
 </script>
@@ -404,13 +429,21 @@
               left: 30px;
               align-self: center;
               cursor: pointer;
-              svg {
+              .gray {
                 font-size: 22px;
                 color: gray;
-                &.active {
-                  color: $mainRed;
-                }
               }
+              .red {
+                font-size: 22px;
+                color: $mainRed;
+              }
+              // svg {
+              //   font-size: 22px;
+              //   color: gray;
+              //   &.active {
+              //     color: $mainRed;
+              //   }
+              // }
             }
           }
         }
