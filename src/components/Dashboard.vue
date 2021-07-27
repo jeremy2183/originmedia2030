@@ -17,7 +17,7 @@
               :key="nav.name"
               :to="nav.link"
             >
-              <div :class="`icon${index}`"></div>
+              <div :class="[`icon${index}`,{'icon01': $route.meta.active === '/Home'}]"></div>
               <div class="username">{{ nav.name }}</div>
             </router-link>
           </ul>
@@ -134,7 +134,8 @@
             }
           }
         }
-        .router-link-exact-active {
+        // .router-link-exact-active {
+        .active {
           .icon0 {
             background-image: url('~@/assets/images/icon/home/selected.svg');
           }
@@ -156,6 +157,9 @@
           &:hover {
             background-image: url('~@/assets/images/icon/home/selected.svg');
           }
+        }
+        .icon01 {
+          background-image: url('~@/assets/images/icon/home/selected.svg');
         }
         .icon1 {
           width: 64px;

@@ -7,12 +7,13 @@ import View from '../views/View.vue';
 import Subscribe from '../views/Subscribe.vue';
 import Store from '../views/Store.vue';
 import Task from '@/components/home/Task';
+import AddYoutube from '@/components/home/AddYoutube';
 
 Vue.use(VueRouter);
 
 const router = new VueRouter({
   mode: 'history',
-  // linkExactActiveClass: 'active',
+  linkExactActiveClass: 'active',
   // linkActiveClass: 'active',
   routes: [
     {
@@ -56,6 +57,17 @@ const router = new VueRouter({
           name: 'Task',
           path: '/home/task',
           component: Task,
+          meta: {
+            active: '/Home',
+          },
+        },
+        {
+          name: 'addYoutube',
+          path: '/home/addYoutube',
+          component: AddYoutube,
+          meta: {
+            active: '/Home',
+          },
         },
       ],
     },

@@ -157,7 +157,7 @@
         this.$router.push('/home');
       },
       addVideo() {
-        console.log('新增');
+        this.$router.push('/home/addYoutube');
       },
       edit() {
         console.log('編緝');
