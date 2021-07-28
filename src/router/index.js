@@ -8,6 +8,7 @@ import Subscribe from '../views/Subscribe.vue';
 import Store from '../views/Store.vue';
 import Task from '@/components/home/Task';
 import AddYoutube from '@/components/home/AddYoutube';
+import Order from '@/components/store/Order';
 
 Vue.use(VueRouter);
 
@@ -68,6 +69,11 @@ const router = new VueRouter({
           meta: {
             active: '/Home',
           },
+        },
+        {
+          name: 'order',
+          path: '/store/order',
+          component: Order,
         },
       ],
     },

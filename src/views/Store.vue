@@ -1,5 +1,18 @@
 <template>
   <div class="store">
+    <div
+      v-if="mask"
+      class="buyCoin"
+    >
+      <div>
+        <h4>提示</h4>
+        <p>確認購買轉往付款頁面嗎</p>
+      </div>
+      <div class="btn">
+        <span @click="cancle">取消</span>
+        <span @click="confirm">確認</span>
+      </div>
+    </div>
     <div class="storeBox">
       <div class="vip">
         <div class="border">
@@ -8,6 +21,7 @@
               class="coin"
               v-for="coin in coins"
               :key="coin.usd"
+              @click="saveMoney"
             >
               <div class="money">
                 <figure class="icon">
@@ -25,7 +39,10 @@
             </div>
           </div>
           <div class="days">
-            <div class="vipBox">
+            <div
+              class="vipBox"
+              @click="saveMoney"
+            >
               <div class="vipday">
                 <div>
                   <figure class="icon">
@@ -129,6 +146,24 @@
         ],
       };
     },
+    methods: {
+      saveMoney() {
+        console.log('money');
+        this.$store.commit('SET_MASK', true);
+      },
+      cancle() {
+        this.$store.commit('SET_MASK', false);
+      },
+      confirm() {
+        this.$store.commit('SET_MASK', false);
+        this.$router.push('/store/order');
+      },
+    },
+    computed: {
+      mask() {
+        return this.$store.state.mask;
+      },
+    },
   };
 </script>
 <style lang="scss" scoped>
@@ -141,11 +176,44 @@
     @include noteBook {
       height: calc(150vh - 80px);
     }
+    .buyCoin {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 10%;
+      bottom: 10%;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 434px;
+      height: 300px;
+      background: #ffffff;
+      border-radius: 5px;
+      padding: 25px;
+      z-index: 9999;
+      h4 {
+        font-size: 24px;
+        color: #000;
+        font-weight: 550;
+      }
+      p {
+        margin-top: 15px;
+      }
+      .btn {
+        align-self: flex-end;
+        span {
+          margin: 0 20px;
+          padding: 5px;
+          cursor: pointer;
+        }
+      }
+    }
     .storeBox {
       width: 100%;
       display: flex;
       justify-content: space-around;
-      margin-top: 190px;
+      margin-top: 150px;
       .vip {
         position: relative;
         width: 814px;
