@@ -74,6 +74,9 @@ const router = new VueRouter({
           name: 'order',
           path: '/store/order',
           component: Order,
+          meta: {
+            active: '/Contacts',
+          },
         },
       ],
     },

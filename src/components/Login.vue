@@ -79,6 +79,7 @@
           controls: 0,
           start: 0,
         },
+        logo_name: 'logo',
       };
     },
     methods: {
@@ -97,6 +98,9 @@
       ready() {
         // this.$refs.youtube.player.playVideo();
       },
+      // requireLogo(name) {
+      //   return 'url(' + require(`../../assets/images/${name}.svg`) + ')';
+      // },
     },
   };
 </script>
@@ -119,7 +123,8 @@
           width: 516px;
           height: 226px;
           margin: auto;
-          background: url('~@/assets/logo.svg');
+          // background: url(~@/assets/images/logo.svg);
+          background: url('/img/logo.c0bcc1c2.svg'); // build用
           background-size: 100%;
         }
         p {

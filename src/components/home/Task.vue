@@ -29,7 +29,10 @@
             v-if="!editState"
             @click="edit"
           >
-            <div class="icon"></div>
+            <div
+              class="icon"
+              :style="[proceENV === 'production' ? { backgroundImage: proImg(edit_server) } : '']"
+            ></div>
             <div class="text">編輯</div>
           </div>
           <div
@@ -40,14 +43,20 @@
               class="complete"
               @click="removeYoutu"
             >
-              <div class="icon"></div>
+              <div
+                class="icon"
+                :style="[proceENV === 'production' ? { maskImage: proImg(check2_server) } : '']"
+              ></div>
               <div class="text">完成</div>
             </div>
             <div
               class="cancle"
               @click="cancle"
             >
-              <div class="icon"></div>
+              <div
+                class="icon"
+                :style="[proceENV === 'production' ? { maskImage: proImg(cross_server) } : '']"
+              ></div>
               <div class="text">取消</div>
             </div>
           </div>
@@ -63,7 +72,10 @@
               <div class="info">
                 <span>觀看秒數：{{ youtu.sec }}</span>
                 <div>
-                  <div class="icon"></div>
+                  <div
+                    class="icon"
+                    :style="[proceENV === 'production' ? { background: proCheck(check_server) } : '']"
+                  ></div>
                   <span>{{youtu.view}}/{{ youtu.view }} 觀看</span>
                 </div>
                 <span>{{ youtu.date }}</span>
@@ -150,6 +162,10 @@
           //   date: '2020-09-1002:47:35 (UTC)',
           // },
         ],
+        edit_server: 'edit.d1ae04fc',
+        check_server: 'Check.5ea4b238',
+        check2_server: 'Check2.e3113cb0',
+        cross_server: 'cross.1270eff3',
       };
     },
     methods: {
@@ -174,12 +190,6 @@
         item.completed = !item.completed;
       },
       removeYoutu() {
-        // this.youtube.forEach(function(item, index, arr) {
-        //   if (item.completed === true) {
-        //     arr.splice(index, );
-        //   }
-        // });
-
         var newIndex = this.youtube.findIndex(item => item.completed === true);
         if (newIndex == -1) {
           alert('請選擇要刪除的項目');
@@ -189,13 +199,21 @@
         this.youtube.splice(newIndex, 1);
         this.editState = false;
       },
+      proImg(name) {
+        return 'url(' + `/img/${name}.svg` + ')';
+      },
+      proCheck(name) {
+        return 'url(' + `/img/${name}.svg` + ') no-repeat center center';
+      },
+      devImg(name) {
+        console.log('name: ', name);
+        return 'url(' + require(`../../assets/images/icon/${name}.svg`) + ')';
+      },
     },
     computed: {
-      // selectNow() {
-      //   return this.youtube.forEach(item => {
-      //     return item.completed;
-      //   });
-      // },
+      proceENV() {
+        return process.env.NODE_ENV;
+      },
     },
   };
 </script>
@@ -468,7 +486,8 @@
         width: 300px;
         height: 150px;
         left: 20px;
-        background: url('~@/assets/images/logo black.svg') no-repeat center center;
+        // background: url('~@/assets/images/logo black.svg') no-repeat center center;
+        background: url('/img/logo black.00d66722.svg') no-repeat center center; //build用
         @include noteBook {
           width: 280px;
         }

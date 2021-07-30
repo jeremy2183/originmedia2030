@@ -137,56 +137,73 @@
         // .router-link-exact-active {
         .active {
           .icon0 {
-            background-image: url('~@/assets/images/icon/home/selected.svg');
+            // background-image: url('~@/assets/images/icon/home/selected.svg');
+            background-image: url('/img/selected.bed7e0fe.svg'); // build用
           }
           .icon1 {
-            background-image: url('~@/assets/images/icon/view/selected.svg');
+            // background-image: url('~@/assets/images/icon/view/selected.svg');
+            background-image: url('/img/selected.6dc7b020.svg'); // build用
           }
           .icon2 {
-            background-image: url('~@/assets/images/icon/subscribe/selected.svg');
+            // background-image: url('~@/assets/images/icon/subscribe/selected.svg');
+            background-image: url('/img/selected.64802068.svg'); // build用
           }
           .icon3 {
-            background-image: url('~@/assets/images/icon/store/selected.svg');
+            // background-image: url('~@/assets/images/icon/store/selected.svg');
+            background-image: url('/img/selected.eb5efc2d.svg'); // build用
           }
         }
         .icon0 {
           width: 64px;
           height: 64px;
-          background-image: url('~@/assets/images/icon/home/normal.svg');
+          // background-image: url('~@/assets/images/icon/home/normal.svg');
+          background-image: url('/img/normal.88acfe2f.svg'); // build用
           background-size: 100%;
           &:hover {
-            background-image: url('~@/assets/images/icon/home/selected.svg');
+            // background-image: url('~@/assets/images/icon/home/selected.svg');
+            background-image: url('/img/selected.bed7e0fe.svg'); // build用
           }
         }
         .icon01 {
-          background-image: url('~@/assets/images/icon/home/selected.svg');
+          // background-image: url('~@/assets/images/icon/home/selected.svg');
+          background-image: url('/img/selected.bed7e0fe.svg'); // build用
         }
         .icon1 {
           width: 64px;
           height: 64px;
-          background-image: url('~@/assets/images/icon/view/normal.svg');
+          // background-image: url('~@/assets/images/icon/view/normal.svg');
+          background-image: url('/img/normal.335347b3.svg'); // build用
           background-size: 100%;
           &:hover {
-            background-image: url('~@/assets/images/icon/view/selected.svg');
+            // background-image: url('~@/assets/images/icon/view/selected.svg');
+            background-image: url('/img/selected.6dc7b020.svg'); // build用
           }
         }
         .icon2 {
           width: 64px;
           height: 64px;
-          background-image: url('~@/assets/images/icon/subscribe/normal.svg');
+          // background-image: url('~@/assets/images/icon/subscribe/normal.svg');
+          background-image: url('/img/normal.e885c2b6.svg'); // build用
           background-size: 100%;
           &:hover {
-            background-image: url('~@/assets/images/icon/subscribe/selected.svg');
+            // background-image: url('~@/assets/images/icon/subscribe/selected.svg');
+            background-image: url('/img/selected.64802068.svg'); // build用
           }
         }
         .icon3 {
           width: 64px;
           height: 64px;
-          background-image: url('~@/assets/images/icon/store/normal.svg');
+          // background-image: url('~@/assets/images/icon/store/normal.svg');
+          background-image: url('/img/normal.b9378c31.svg'); // build用
           background-size: 100%;
           &:hover {
-            background-image: url('~@/assets/images/icon/store/selected.svg');
+            // background-image: url('~@/assets/images/icon/store/selected.svg');
+            background-image: url('/img/selected.eb5efc2d.svg'); // build用
           }
+        }
+        .icon04 {
+          // background-image: url('~@/assets/images/icon/store/selected.svg');
+          background-image: url('/img/selected.eb5efc2d.svg'); // build用
         }
         .username {
           font-size: 21px;
