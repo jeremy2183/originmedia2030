@@ -114,6 +114,10 @@
         box-shadow: 0 8px 8px 0 rgba(198, 40, 40, 0.2), 0 0 8px 0 rgba(198, 40, 40, 0.2);
         border-radius: 46px;
         cursor: pointer;
+        @include noteBook {
+          width: 260px;
+          height: 220px;
+        }
         .border {
           position: absolute;
           width: 350px;
@@ -121,10 +125,18 @@
           background: #ffffff;
           border: 2px solid #c62828;
           border-radius: 46px;
+          @include noteBook {
+            width: 250px;
+            height: 210px;
+          }
           figure {
             width: 88px;
             height: 88px;
             margin: 48px auto 24px;
+            @include noteBook {
+              width: 55px;
+              height: 55px;
+            }
             img {
               width: 100%;
             }
@@ -136,6 +148,9 @@
             color: $gray;
             letter-spacing: 1px;
             font-weight: 550;
+            @include noteBook {
+              font-size: 18px;
+            }
             &:nth-of-type(2) {
               margin-top: 10px;
             }

@@ -16,7 +16,7 @@
   }
 }
 @mixin noteBook {
-  @media (max-width: 1366px) {
+  @media (max-width: 1440px) {
     @content;
   }
 }

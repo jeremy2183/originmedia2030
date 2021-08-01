@@ -99,6 +99,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      @include noteBook {
+        width: 10%;
+      }
       .user {
         .icon {
           width: 40px;
@@ -252,6 +255,9 @@
       // overflow-y: auto;
       background-color: #f1f5f8;
       // border: 1px solid red;
+      @include noteBook {
+        width: 90%;
+      }
     }
   }
 </style>
