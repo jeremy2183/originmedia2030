@@ -64,6 +64,9 @@
         border: 5px solid #ffffff;
         box-shadow: 0 8px 8px 0 rgba(198, 40, 40, 0.2), 0 0 8px 0 rgba(198, 40, 40, 0.2);
         border-radius: 46px;
+        @include noteBook {
+          width: 40%;
+        }
         .id {
           position: absolute;
           width: 614px;
@@ -74,11 +77,18 @@
           background: #ffffff;
           border: 2px solid #c62828;
           border-radius: 46px;
+          @include noteBook {
+            width: 100%;
+          }
           .icon {
             width: 126px;
             height: 126px;
             background: #979797;
             border-radius: 100px;
+            @include noteBook {
+              width: 100px;
+              height: 100px;
+            }
           }
           .info {
             width: 316px;
@@ -104,6 +114,9 @@
         height: 400px;
         background: #fafafa;
         box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+        @include noteBook {
+          width: 45%;
+        }
         .text {
           width: 406px;
           height: 194px;
@@ -144,13 +157,20 @@
       justify-content: center;
       align-items: center;
       .box {
-        width: 1024px;
+        width: 720px;
         height: 200px;
         margin-left: 300px;
         background: #d8d8d8;
         border: 1px solid #979797;
+        img {
+          width: 100%;
+          height: 100%;
+        }
         @include noteBook {
           width: 40vw;
+          img {
+            width: 100%;
+          }
         }
       }
       .logo {

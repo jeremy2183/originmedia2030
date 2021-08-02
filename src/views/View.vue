@@ -57,12 +57,12 @@
   </div>
 </template>
 <script>
-import * as service from "@/service/webAPI.js";
+  import * as service from '@/service/webAPI.js';
   export default {
     name: 'Views',
     created() {
       this.getVideo(this.slug);
-      console.log(this.process)
+      console.log(this.process);
     },
     data() {
       return {
@@ -78,12 +78,12 @@ import * as service from "@/service/webAPI.js";
         this.select = !this.select;
       },
       getVideo(slug) {
-        service.getVideo(slug).then((res) => {
+        service.getVideo(slug).then(res => {
           console.log('get Video: ', res);
           this.data = res.data;
           this.$store.commit('GET_MARQUEE', res.data.marquee);
-        })
-      }
+        });
+      },
     },
     computed: {
       process() {
@@ -91,8 +91,8 @@ import * as service from "@/service/webAPI.js";
       },
       proceENV() {
         return process.env.NODE_ENV;
-      }
-    }
+      },
+    },
   };
 </script>
 <style lang="scss" scoped>
@@ -284,16 +284,20 @@ import * as service from "@/service/webAPI.js";
       justify-content: center;
       align-items: center;
       .box {
-        width: 1024px;
+        width: 720px;
         height: 200px;
         margin-left: 300px;
         background: #d8d8d8;
         border: 1px solid #979797;
         img {
-          width: 80%;
+          width: 100%;
+          height: 100%;
         }
         @include noteBook {
           width: 40vw;
+          img {
+            width: 100%;
+          }
         }
       }
       .logo {

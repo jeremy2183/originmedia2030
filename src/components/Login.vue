@@ -14,7 +14,10 @@
         ></youtube>
       </div>
       <div class="logoBox">
-        <div class="logo"></div>
+        <div
+          class="logo"
+          :style="[proceENV === 'production' ? { background: proImg(logo_name) } : '']"
+        ></div>
         <p>OriginMedia2030- get subscribers, views and likes</p>
         <p>Get more subscribers, promote your channel</p>
         <p>Login with your YouTube account</p>
@@ -79,7 +82,7 @@
           controls: 0,
           start: 0,
         },
-        logo_name: 'logo',
+        logo_name: 'logo.c0bcc1c2',
       };
     },
     methods: {
@@ -98,9 +101,17 @@
       ready() {
         // this.$refs.youtube.player.playVideo();
       },
+      proImg(name) {
+        return 'url(' + `/img/${name}.svg` + ')';
+      },
       // requireLogo(name) {
       //   return 'url(' + require(`../../assets/images/${name}.svg`) + ')';
       // },
+    },
+    computed: {
+      proceENV() {
+        return process.env.NODE_ENV;
+      },
     },
   };
 </script>
@@ -123,8 +134,8 @@
           width: 516px;
           height: 226px;
           margin: auto;
-          // background: url(~@/assets/images/logo.svg);
-          background: url('/img/logo.c0bcc1c2.svg'); // build用
+          background: url(~@/assets/images/logo.svg);
+          // background: url('/img/logo.c0bcc1c2.svg'); // build用
           background-size: 100%;
         }
         p {

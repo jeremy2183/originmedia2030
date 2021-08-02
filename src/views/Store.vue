@@ -222,6 +222,9 @@
         border: 5px solid #ffffff;
         box-shadow: 0 8px 8px 0 rgba(198, 40, 40, 0.2), 0 0 8px 0 rgba(198, 40, 40, 0.2);
         border-radius: 46px;
+        @include noteBook {
+          width: 50%;
+        }
         .border {
           position: absolute;
           width: 804px;
@@ -232,9 +235,15 @@
           background: #ffffff;
           border: 2px solid #c62828;
           border-radius: 46px;
+          @include noteBook {
+            width: 100%;
+          }
           .coinBox {
             width: 343px;
             height: 300px;
+            @include noteBook {
+              width: 45%;
+            }
             .coin {
               width: 343px;
               height: 64px;
@@ -246,6 +255,9 @@
               border-radius: 5px;
               padding: 0 24px;
               cursor: pointer;
+              @include noteBook {
+                width: 100%;
+              }
               &:not(:nth-of-type(1)) {
                 margin-top: 16px;
               }
@@ -292,6 +304,9 @@
             display: flex;
             flex-direction: column;
             cursor: pointer;
+            @include noteBook {
+              width: 45%;
+            }
             .vipBox {
               width: 343px;
               height: 144px;
@@ -301,6 +316,9 @@
               box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
               border-radius: 5px;
               margin-bottom: 46px;
+              @include noteBook {
+                width: 100%;
+              }
               .vipday {
                 width: 100%;
                 height: 32px;

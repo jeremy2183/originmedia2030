@@ -303,6 +303,9 @@
           .setting {
             width: 343px;
             height: 280px;
+            @include noteBook {
+              width: 45%;
+            }
             h4 {
               font-size: 21px;
               color: #000000;
@@ -378,6 +381,9 @@
               color: #fff;
               margin-top: 40.75px;
               cursor: pointer;
+              @include noteBook {
+                width: 100%;
+              }
             }
           }
           .attention {
@@ -387,6 +393,9 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            @include noteBook {
+              width: 40%;
+            }
             h2,
             h3 {
               color: $subRed;
