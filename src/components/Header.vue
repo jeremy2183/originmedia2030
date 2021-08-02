@@ -21,7 +21,7 @@
               onmouseover="this.stop();"
               onmouseout="this.start();"
             >
-              跑馬燈跑馬燈跑馬燈跑馬燈跑馬燈跑馬燈跑馬燈跑馬燈跑馬燈跑馬燈跑馬燈跑馬燈
+              {{ getMarquee }}
             </marquee>
           </div>
         </div>
@@ -42,8 +42,14 @@
 <script>
   export default {
     data() {
-      return {};
+      return {
+      };
     },
+    computed: {
+      getMarquee() {
+        return this.$store.state.marquee
+      }
+    }
   };
 </script>
 <style lang="scss" scoped>

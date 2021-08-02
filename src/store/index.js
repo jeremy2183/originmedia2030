@@ -8,6 +8,7 @@ export default new Vuex.Store({
     mask: false,
     view: false,
     sec: false,
+    marquee: '',
   },
   mutations: {
     SET_MASK: (state, data) => {
@@ -18,6 +19,9 @@ export default new Vuex.Store({
     },
     OPEN_SEC: (state, data) => {
       state.sec = data;
+    },
+    GET_MARQUEE: (state, data) => {
+      state.marquee = data;
     },
   },
   actions: {},

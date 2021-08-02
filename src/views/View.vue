@@ -42,27 +42,57 @@
       </div>
     </div>
     <div class="advertise">
-      <div class="box"></div>
+      <div class="box">
+        <img
+          :src="[
+            proceENV === 'production'
+              ? 'https://originmedia2030.com' + data.video_bottom_img
+              : process + data.video_bottom_img,
+          ]"
+          alt=""
+        />
+      </div>
       <div class="logo"></div>
     </div>
   </div>
 </template>
 <script>
+import * as service from "@/service/webAPI.js";
   export default {
     name: 'Views',
+    created() {
+      this.getVideo(this.slug);
+      console.log(this.process)
+    },
     data() {
       return {
         sec: 400,
         point: 480,
         select: false,
+        slug: 'none',
+        data: '',
       };
     },
     methods: {
       autoplay() {
-        console.log(1);
         this.select = !this.select;
       },
+      getVideo(slug) {
+        service.getVideo(slug).then((res) => {
+          console.log('get Video: ', res);
+          this.data = res.data;
+          this.$store.commit('GET_MARQUEE', res.data.marquee);
+        })
+      }
     },
+    computed: {
+      process() {
+        return process.env.VUE_APP_API_TARGET;
+      },
+      proceENV() {
+        return process.env.NODE_ENV;
+      }
+    }
   };
 </script>
 <style lang="scss" scoped>
@@ -259,6 +289,9 @@
         margin-left: 300px;
         background: #d8d8d8;
         border: 1px solid #979797;
+        img {
+          width: 80%;
+        }
         @include noteBook {
           width: 40vw;
         }
