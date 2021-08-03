@@ -162,11 +162,11 @@
           //   date: '2020-09-1002:47:35 (UTC)',
           // },
         ],
-        edit_server: 'edit.d1ae04fc',
-        check_server: 'Check.5ea4b238',
-        check2_server: 'Check2.e3113cb0',
-        cross_server: 'cross.1270eff3',
-        logo_server: 'logo black.00d66722'
+        edit_server: 'edit.641df7be',
+        check_server: 'Check.5b4c85d1',
+        check2_server: 'Check2.21e1f16d',
+        cross_server: 'cross.4fedf0c8',
+        logo_server: 'logoblack.e37e1e94'
       };
     },
     methods: {
@@ -487,7 +487,7 @@
         width: 300px;
         height: 150px;
         left: 20px;
-        background: url('~@/assets/images/logo black.svg') no-repeat center center;
+        background: url('~@/assets/images/logoblack.svg') no-repeat center center;
         // background: url('/img/logo black.00d66722.svg') no-repeat center center; //build用
         @include noteBook {
           width: 280px;

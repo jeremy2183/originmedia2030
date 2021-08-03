@@ -59,7 +59,7 @@
     name: 'Home',
     data() {
       return {
-        logo_server: 'logo black.00d66722'
+        logo_server: 'logoblack.e37e1e94'
       };
     },
     methods: {
@@ -228,7 +228,7 @@
         width: 300px;
         height: 150px;
         left: 20px;
-        background: url('~@/assets/images/logo black.svg') no-repeat center center;
+        background: url('~@/assets/images/logoblack.svg') no-repeat center center;
         // background: url('/img/logo black.00d66722.svg') no-repeat center center; //build用
       }
     }

@@ -82,7 +82,7 @@
           controls: 0,
           start: 0,
         },
-        logo_name: 'logo.c0bcc1c2',
+        logo_name: 'logo.914679a1',
       };
     },
     methods: {

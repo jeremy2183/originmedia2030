@@ -71,7 +71,7 @@
         select: false,
         slug: 'none',
         data: '',
-        logo_server: 'logo black.00d66722'
+        logo_server: 'logoblack.e37e1e94'
       };
     },
     methods: {
