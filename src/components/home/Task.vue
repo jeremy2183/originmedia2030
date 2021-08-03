@@ -99,7 +99,7 @@
     </div>
     <div class="advertise">
       <div class="box"></div>
-      <div class="logo"></div>
+      <div class="logo" :style="[proceENV === 'production' ? { background: proCheck(logo_server) } : '']"></div>
     </div>
   </div>
 </template>
@@ -166,6 +166,7 @@
         check_server: 'Check.5ea4b238',
         check2_server: 'Check2.e3113cb0',
         cross_server: 'cross.1270eff3',
+        logo_server: 'logo black.00d66722'
       };
     },
     methods: {
@@ -486,8 +487,8 @@
         width: 300px;
         height: 150px;
         left: 20px;
-        // background: url('~@/assets/images/logo black.svg') no-repeat center center;
-        background: url('/img/logo black.00d66722.svg') no-repeat center center; //build用
+        background: url('~@/assets/images/logo black.svg') no-repeat center center;
+        // background: url('/img/logo black.00d66722.svg') no-repeat center center; //build用
         @include noteBook {
           width: 280px;
         }

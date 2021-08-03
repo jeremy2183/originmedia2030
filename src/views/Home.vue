@@ -48,7 +48,7 @@
     </div>
     <div class="advertise">
       <div class="box"></div>
-      <div class="logo"></div>
+      <div class="logo" :style="[proceENV === 'production' ? { background: proImg(logo_server) } : '']"></div>
     </div>
   </div>
 </template>
@@ -58,7 +58,9 @@
   export default {
     name: 'Home',
     data() {
-      return {};
+      return {
+        logo_server: 'logo black.00d66722'
+      };
     },
     methods: {
       addView() {
@@ -68,7 +70,15 @@
       subScribe() {
         console.log('subscribe');
       },
+      proImg(name) {
+        return 'url(' + `/img/${name}.svg` + ') no-repeat center center';
+      },
     },
+    computed: {
+      proceENV() {
+        return process.env.NODE_ENV;
+      },
+    }
   };
 </script>
 <style lang="scss" scoped>
@@ -218,8 +228,8 @@
         width: 300px;
         height: 150px;
         left: 20px;
-        // background: url('~@/assets/images/logo black.svg') no-repeat center center;
-        background: url('/img/logo black.00d66722.svg') no-repeat center center; //build用
+        background: url('~@/assets/images/logo black.svg') no-repeat center center;
+        // background: url('/img/logo black.00d66722.svg') no-repeat center center; //build用
       }
     }
   }

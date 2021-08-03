@@ -117,7 +117,7 @@
     </div>
     <div class="advertise">
       <div class="box"></div>
-      <div class="logo"></div>
+      <div class="logo" :style="[proceENV === 'production' ? { background: proImg(logo_server) } : '']"></div>
     </div>
   </div>
 </template>
@@ -144,6 +144,7 @@
             usd: 200,
           },
         ],
+        logo_server: 'logo black.00d66722'
       };
     },
     methods: {
@@ -158,10 +159,16 @@
         this.$store.commit('SET_MASK', false);
         this.$router.push('/store/order');
       },
+      proImg(name) {
+        return 'url(' + `/img/${name}.svg` + ') no-repeat center center';
+      },
     },
     computed: {
       mask() {
         return this.$store.state.mask;
+      },
+      proceENV() {
+        return process.env.NODE_ENV;
       },
     },
   };
@@ -472,8 +479,8 @@
         width: 300px;
         height: 150px;
         left: 20px;
-        // background: url('~@/assets/images/logo black.svg') no-repeat center center;
-        background: url('/img/logo black.00d66722.svg') no-repeat center center; //build用
+        background: url('~@/assets/images/logo black.svg') no-repeat center center;
+        // background: url('/img/logo black.00d66722.svg') no-repeat center center; //build用
       }
     }
   }
