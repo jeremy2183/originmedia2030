@@ -9,6 +9,7 @@ export default new Vuex.Store({
     view: false,
     sec: false,
     marquee: '',
+    bottomImg: '',
   },
   mutations: {
     SET_MASK: (state, data) => {
@@ -22,6 +23,9 @@ export default new Vuex.Store({
     },
     GET_MARQUEE: (state, data) => {
       state.marquee = data;
+    },
+    GET_BOTMIMG: (state, data) => {
+      state.bottomImg = data;
     },
   },
   actions: {},

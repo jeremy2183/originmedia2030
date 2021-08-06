@@ -116,7 +116,16 @@
       </div>
     </div>
     <div class="advertise">
-      <div class="box"></div>
+      <div class="box">
+        <img
+          :src="[
+            proceENV === 'production'
+              ? 'https://originmedia2030.com' + get_bottom_img
+              : process + get_bottom_img,
+          ]"
+          alt=""
+        />
+      </div>
       <div class="logo" :style="[proceENV === 'production' ? { background: proImg(logo_server) } : '']"></div>
     </div>
   </div>
@@ -147,6 +156,12 @@
         logo_server: 'logo black.00d66722'
       };
     },
+    created() {
+      //在頁面載入時讀取localStorage裡的狀態資訊
+      if (localStorage.getItem("store")){
+        this.$store.replaceState(Object.assign({}, this.$store.state,JSON.parse(localStorage.getItem("store"))))
+      }
+    },
     methods: {
       saveMoney() {
         console.log('money');
@@ -164,12 +179,18 @@
       },
     },
     computed: {
+      process() {
+        return process.env.VUE_APP_API_TARGET;
+      },
       mask() {
         return this.$store.state.mask;
       },
       proceENV() {
         return process.env.NODE_ENV;
       },
+      get_bottom_img() {
+        return this.$store.state.bottomImg
+      }
     },
   };
 </script>
@@ -465,13 +486,20 @@
       justify-content: center;
       align-items: center;
       .box {
-        width: 1024px;
+        width: 720px;
         height: 200px;
         margin-left: 300px;
         background: #d8d8d8;
         border: 1px solid #979797;
+        img {
+          width: 100%;
+          height: 100%;
+        }
         @include noteBook {
           width: 40vw;
+          img {
+            width: 100%;
+          }
         }
       }
       .logo {
@@ -479,7 +507,7 @@
         width: 300px;
         height: 150px;
         left: 20px;
-        background: url('~@/assets/images/logo black.svg') no-repeat center center;
+        background: url('~@/assets/images/logoblack.svg') no-repeat center center;
         // background: url('/img/logo black.00d66722.svg') no-repeat center center; //build用
       }
     }

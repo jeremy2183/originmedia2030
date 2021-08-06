@@ -5,10 +5,21 @@
         v-for="item in 8"
         class="video"
         :key="item.id"
-      ></div>
+      >
+      </div>
     </div>
     <div class="views">
-      <div class="video"></div>
+      <div class="video">
+        <youtube
+          :video-id="videoId"
+          :host="host"
+          :player-vars="playerVars"
+          width="462"
+          height="230"
+          :resize="true"
+          :fitParent="true"
+        ></youtube>
+      </div>
       <div class="box">
         <div class="autoview">
           <div class="auto">
@@ -46,8 +57,8 @@
         <img
           :src="[
             proceENV === 'production'
-              ? 'https://originmedia2030.com' + data.video_bottom_img
-              : process + data.video_bottom_img,
+              ? 'https://originmedia2030.com' + get_bottom_img
+              : process + get_bottom_img,
           ]"
           alt=""
         />
@@ -62,7 +73,7 @@
     name: 'Views',
     created() {
       this.getVideo(this.slug);
-      console.log(this.process);
+      // console.log(this.process);
     },
     data() {
       return {
@@ -71,7 +82,14 @@
         select: false,
         slug: 'none',
         data: '',
-        logo_server: 'logoblack.e37e1e94'
+        logo_server: 'logoblack.e37e1e94',
+        videoId: '7Vc6oQ3HliQ',
+        host: 'https://www.youtube.com',
+        playerVars: {
+          autoplay: 0,
+          controls: 0,
+          start: 0,
+        },
       };
     },
     methods: {
@@ -82,7 +100,6 @@
         service.getVideo(slug).then(res => {
           console.log('get Video: ', res);
           this.data = res.data;
-          this.$store.commit('GET_MARQUEE', res.data.marquee);
         });
       },
       proImg(name) {
@@ -96,6 +113,9 @@
       proceENV() {
         return process.env.NODE_ENV;
       },
+      get_bottom_img() {
+        return this.$store.state.bottomImg
+      }
     },
   };
 </script>
@@ -309,7 +329,7 @@
         width: 300px;
         height: 150px;
         left: 20px;
-        background: url('~@/assets/images/logo black.svg') no-repeat center center;
+        background: url('~@/assets/images/logoblack.svg') no-repeat center center;
         // background: url('/img/logo black.00d66722.svg') no-repeat center center; //build用
         @include noteBook {
           width: 280px;

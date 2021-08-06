@@ -26,7 +26,16 @@
       </div>
     </div>
     <div class="advertise">
-      <div class="box"></div>
+      <div class="box">
+        <img
+          :src="[
+            proceENV === 'production'
+              ? 'https://originmedia2030.com' + get_bottom_img
+              : process + get_bottom_img,
+          ]"
+          alt=""
+        />
+      </div>
       <div class="logo" :style="[proceENV === 'production' ? { background: proImg(logo_server) } : '']"></div>
     </div>
   </div>
@@ -39,15 +48,27 @@
         logo_server: 'logo black.00d66722'
       };
     },
+    created() {
+      //在頁面載入時讀取localStorage裡的狀態資訊
+      if (localStorage.getItem("store")){
+        this.$store.replaceState(Object.assign({}, this.$store.state,JSON.parse(localStorage.getItem("store"))))
+      }
+    },
     methods: {
       proImg(name) {
         return 'url(' + `/img/${name}.svg` + ') no-repeat center center';
       },
     },
     computed: {
+      process() {
+        return process.env.VUE_APP_API_TARGET;
+      },
       proceENV() {
         return process.env.NODE_ENV;
       },
+      get_bottom_img() {
+        return this.$store.state.bottomImg
+      }
     }
   };
 </script>

@@ -72,6 +72,7 @@
   </div>
 </template>
 <script>
+  import * as service from '@/service/webAPI.js';
   export default {
     data() {
       return {
@@ -83,7 +84,11 @@
           start: 0,
         },
         logo_name: 'logo.914679a1',
+        slug: 'none',
       };
+    },
+    created() {
+      this.getMaq_IMG(this.slug);
     },
     methods: {
       login() {
@@ -103,6 +108,12 @@
       },
       proImg(name) {
         return 'url(' + `/img/${name}.svg` + ')';
+      },
+      getMaq_IMG(slug) {
+        service.getMaq_IMG(slug).then(res => {
+          this.$store.commit('GET_MARQUEE', res.data.marquee);
+          this.$store.commit('GET_BOTMIMG', res.data.video_bottom_img);
+        });
       },
       // requireLogo(name) {
       //   return 'url(' + require(`../../assets/images/${name}.svg`) + ')';
