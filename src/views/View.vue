@@ -1,11 +1,45 @@
 <template>
   <div class="view">
     <div class="youtube">
-      <div
-        v-for="item in 8"
-        class="video"
-        :key="item.id"
-      >
+      <div class="video">
+        <a href="https://youtu.be/Qtm8Srqp8eY" target="_blank">
+          <img src="https://img.youtube.com/vi/Qtm8Srqp8eY/hqdefault.jpg" alt="">
+        </a>
+      </div>
+      <div class="video">
+        <a href="https://www.youtube.com/watch?v=oMLXOxtoe3g" target="_blank">
+          <img src="https://img.youtube.com/vi/oMLXOxtoe3g/hqdefault.jpg" alt="">
+        </a>
+      </div>
+      <div class="video">
+        <a href="https://www.youtube.com/watch?v=7Vc6oQ3HliQ" target="_blank">
+          <img src="https://img.youtube.com/vi/7Vc6oQ3HliQ/hqdefault.jpg" alt="">
+        </a>
+      </div>
+      <div class="video">
+        <a href="https://www.youtube.com/watch?v=McJJ1eGp2PM" target="_blank">
+          <img src="https://img.youtube.com/vi/McJJ1eGp2PM/hqdefault.jpg" alt="">
+        </a>
+      </div>
+      <div class="video">
+        <a href="https://www.youtube.com/watch?v=rEV3ALWSy3o" target="_blank">
+          <img src="https://img.youtube.com/vi/rEV3ALWSy3o/hqdefault.jpg" alt="">
+        </a>
+      </div>
+      <div class="video">
+        <a href="https://www.youtube.com/watch?v=Mgf7qBiWMDA" target="_blank">
+          <img src="https://img.youtube.com/vi/Mgf7qBiWMDA/hqdefault.jpg" alt="">
+        </a>
+      </div>
+      <div class="video">
+        <a href="https://www.youtube.com/watch?v=j5MNE75cE2E" target="_blank">
+          <img src="https://img.youtube.com/vi/j5MNE75cE2E/hqdefault.jpg" alt="">
+        </a>
+      </div>
+      <div class="video">
+        <a href="https://www.youtube.com/watch?v=ibif6FUe9cs" target="_blank">
+          <img src="https://img.youtube.com/vi/ibif6FUe9cs/hqdefault.jpg" alt="">
+        </a>
       </div>
     </div>
     <div class="views">
@@ -137,7 +171,11 @@
         width: 12.5%;
         height: 120px;
         background: #d8d8d8;
-        border: 1px solid #979797;
+        // border: 1px solid #979797;
+        img {
+          width: 100%;
+          height: 125%;
+        }
         &:nth-of-type(1) {
           border-left: none;
         }
