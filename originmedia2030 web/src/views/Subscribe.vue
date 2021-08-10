@@ -45,7 +45,7 @@
     name: 'Subscribe',
     data() {
       return {
-        logo_server: 'logoblack.e37e1e94'
+        logo_server: 'logo black.00d66722'
       };
     },
     created() {
@@ -77,11 +77,10 @@
     height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;
-    // justify-content: space-between;
-    justify-content: flex-end;
-    // align-items: center;
+    justify-content: space-between;
+    align-items: center;
     @include noteBook {
-      // height: calc(150vh - 80px);
+      height: calc(150vh - 80px);
     }
     .channel {
       width: 100%;
@@ -89,10 +88,7 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      margin-bottom: 100px;
-      @include noteBook {
-        margin-bottom: 50px;
-      }
+      margin-top: 200px;
       .idbox {
         position: relative;
         width: 624px;

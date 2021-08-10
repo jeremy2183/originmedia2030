@@ -1,11 +1,46 @@
 <template>
   <div class="home">
     <div class="youtube">
-      <div class="video" v-for="video in videoArr" :key=video.id>
-        <a :href="`https://youtu.be/${video}`" target="_blank">
-          <img :src="`https://img.youtube.com/vi/${video}/hqdefault.jpg`" alt="">
+      <div class="video" v-for="(video, idx) in 8" :key=idx>
+        <a :href="`https://youtu.be/(${vid + Number(idx+1)})`" target="_blank">
+          <img src="https://img.youtube.com/vi/Qtm8Srqp8eY/hqdefault.jpg" alt="">
         </a>
       </div>
+      <!-- <div class="video">
+        <a href="https://www.youtube.com/watch?v=oMLXOxtoe3g" target="_blank">
+          <img src="https://img.youtube.com/vi/oMLXOxtoe3g/hqdefault.jpg" alt="">
+        </a>
+      </div>
+      <div class="video">
+        <a href="https://www.youtube.com/watch?v=7Vc6oQ3HliQ" target="_blank">
+          <img src="https://img.youtube.com/vi/7Vc6oQ3HliQ/hqdefault.jpg" alt="">
+        </a>
+      </div>
+      <div class="video">
+        <a href="https://www.youtube.com/watch?v=McJJ1eGp2PM" target="_blank">
+          <img src="https://img.youtube.com/vi/McJJ1eGp2PM/hqdefault.jpg" alt="">
+        </a>
+      </div>
+      <div class="video">
+        <a href="https://www.youtube.com/watch?v=rEV3ALWSy3o" target="_blank">
+          <img src="https://img.youtube.com/vi/rEV3ALWSy3o/hqdefault.jpg" alt="">
+        </a>
+      </div>
+      <div class="video">
+        <a href="https://www.youtube.com/watch?v=Mgf7qBiWMDA" target="_blank">
+          <img src="https://img.youtube.com/vi/Mgf7qBiWMDA/hqdefault.jpg" alt="">
+        </a>
+      </div>
+      <div class="video">
+        <a href="https://www.youtube.com/watch?v=j5MNE75cE2E" target="_blank">
+          <img src="https://img.youtube.com/vi/j5MNE75cE2E/hqdefault.jpg" alt="">
+        </a>
+      </div>
+      <div class="video">
+        <a href="https://www.youtube.com/watch?v=ibif6FUe9cs" target="_blank">
+          <img src="https://img.youtube.com/vi/ibif6FUe9cs/hqdefault.jpg" alt="">
+        </a>
+      </div> -->
     </div>
     <div class="subscrip">
       <div
@@ -70,7 +105,14 @@
     data() {
       return {
         logo_server: 'logoblack.e37e1e94',
-        videoArr: [],
+        vid1: '',
+        vid2: '',
+        vid3: '',
+        vid4: '',
+        vid5: '',
+        vid6: '',
+        vid7: '',
+        vid8: '',
       };
     },
     created() {
@@ -85,16 +127,14 @@
 
       service.getVideos().then(res => {
         console.log('get Video: ', res.data);
-        this.video = res.data;
-        let vid1 = res.data.video1.match(/[^/]*$/)[0];
-        let vid2 = res.data.video2.match(/[^/]*$/)[0];
-        let vid3 = res.data.video3.match(/[^/]*$/)[0];
-        let vid4 = res.data.video4.match(/[^/]*$/)[0];
-        let vid5 = res.data.video5.match(/[^/]*$/)[0];
-        let vid6 = res.data.video6.match(/[^/]*$/)[0];
-        let vid7 = res.data.video7.match(/[^/]*$/)[0];
-        let vid8 = res.data.video8.match(/[^/]*$/)[0];
-        this.videoArr = [vid1,vid2,vid3,vid4,vid5,vid6,vid7,vid8];
+        this.vid1 = res.data.video1.match(/[^/]*$/)[0];
+        this.vid2 = res.data.video2.match(/[^/]*$/)[0];
+        this.vid3 = res.data.video3.match(/[^/]*$/)[0];
+        this.vid4 = res.data.video4.match(/[^/]*$/)[0];
+        this.vid5 = res.data.video5.match(/[^/]*$/)[0];
+        this.vid6 = res.data.video6.match(/[^/]*$/)[0];
+        this.vid7 = res.data.video7.match(/[^/]*$/)[0];
+        this.vid8 = res.data.video8.match(/[^/]*$/)[0];
       });
     },
     methods: {
@@ -130,7 +170,7 @@
     justify-content: space-between;
     align-items: center;
     @include noteBook {
-      // height: calc(150vh - 80px);
+      height: calc(150vh - 80px);
     }
     .youtube {
       width: 100%;
@@ -142,6 +182,7 @@
         // border: 1px solid #979797;
         img {
           width: 100%;
+          height: 125%;
         }
         &:nth-of-type(1) {
           border-left: none;

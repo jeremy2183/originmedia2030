@@ -94,19 +94,15 @@
       // bottom: 0;
       background: #fafafa;
       box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.12), 0 8px 12px 0 rgba(0, 0, 0, 0.24);
-      padding: 0;
+      padding: 32px 0;
       // padding-bottom: 850px;
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
       align-items: center;
-      // border: 1px solid red;
       @include noteBook {
-        width: 120px;
+        width: 10%;
       }
       .user {
-        position: relative;
-        top: 32px;
         .icon {
           width: 40px;
           height: 40px;
@@ -135,9 +131,6 @@
           li {
             &:not(:nth-of-type(1)) {
               margin-top: 60px;
-              @include noteBook {
-                margin-top: 30px;
-              }
             }
             &:hover {
               cursor: pointer;
@@ -163,15 +156,9 @@
             background-image: url('/img/selected.eb5efc2d.svg'); // build用
           }
         }
-        .icon0,.icon1,.icon2,.icon3 {
+        .icon0 {
           width: 64px;
           height: 64px;
-          @include noteBook {
-            width: 48px;
-            height: 48px;
-          }
-        }
-        .icon0 {
           // background-image: url('~@/assets/images/icon/home/normal.svg');
           background-image: url('/img/normal.88acfe2f.svg'); // build用
           background-size: 100%;
@@ -185,6 +172,8 @@
           background-image: url('/img/selected.bed7e0fe.svg'); // build用
         }
         .icon1 {
+          width: 64px;
+          height: 64px;
           // background-image: url('~@/assets/images/icon/view/normal.svg');
           background-image: url('/img/normal.335347b3.svg'); // build用
           background-size: 100%;
@@ -194,6 +183,8 @@
           }
         }
         .icon2 {
+          width: 64px;
+          height: 64px;
           // background-image: url('~@/assets/images/icon/subscribe/normal.svg');
           background-image: url('/img/normal.e885c2b6.svg'); // build用
           background-size: 100%;
@@ -203,6 +194,8 @@
           }
         }
         .icon3 {
+          width: 64px;
+          height: 64px;
           // background-image: url('~@/assets/images/icon/store/normal.svg');
           background-image: url('/img/normal.b9378c31.svg'); // build用
           background-size: 100%;
@@ -227,8 +220,6 @@
         }
       }
       .logout {
-        position: relative;
-        bottom: 32px;
         display: flex;
         align-items: center;
         margin-top: 90px;

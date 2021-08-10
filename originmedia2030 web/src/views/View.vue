@@ -1,9 +1,44 @@
 <template>
   <div class="view">
     <div class="youtube">
-      <div class="video" v-for="video in videoArr" :key=video.id>
-        <a :href="`https://youtu.be/${video}`" target="_blank">
-          <img :src="`https://img.youtube.com/vi/${video}/hqdefault.jpg`" alt="">
+      <div class="video">
+        <a href="https://youtu.be/Qtm8Srqp8eY" target="_blank">
+          <img src="https://img.youtube.com/vi/Qtm8Srqp8eY/hqdefault.jpg" alt="">
+        </a>
+      </div>
+      <div class="video">
+        <a href="https://www.youtube.com/watch?v=oMLXOxtoe3g" target="_blank">
+          <img src="https://img.youtube.com/vi/oMLXOxtoe3g/hqdefault.jpg" alt="">
+        </a>
+      </div>
+      <div class="video">
+        <a href="https://www.youtube.com/watch?v=7Vc6oQ3HliQ" target="_blank">
+          <img src="https://img.youtube.com/vi/7Vc6oQ3HliQ/hqdefault.jpg" alt="">
+        </a>
+      </div>
+      <div class="video">
+        <a href="https://www.youtube.com/watch?v=McJJ1eGp2PM" target="_blank">
+          <img src="https://img.youtube.com/vi/McJJ1eGp2PM/hqdefault.jpg" alt="">
+        </a>
+      </div>
+      <div class="video">
+        <a href="https://www.youtube.com/watch?v=rEV3ALWSy3o" target="_blank">
+          <img src="https://img.youtube.com/vi/rEV3ALWSy3o/hqdefault.jpg" alt="">
+        </a>
+      </div>
+      <div class="video">
+        <a href="https://www.youtube.com/watch?v=Mgf7qBiWMDA" target="_blank">
+          <img src="https://img.youtube.com/vi/Mgf7qBiWMDA/hqdefault.jpg" alt="">
+        </a>
+      </div>
+      <div class="video">
+        <a href="https://www.youtube.com/watch?v=j5MNE75cE2E" target="_blank">
+          <img src="https://img.youtube.com/vi/j5MNE75cE2E/hqdefault.jpg" alt="">
+        </a>
+      </div>
+      <div class="video">
+        <a href="https://www.youtube.com/watch?v=ibif6FUe9cs" target="_blank">
+          <img src="https://img.youtube.com/vi/ibif6FUe9cs/hqdefault.jpg" alt="">
         </a>
       </div>
     </div>
@@ -14,7 +49,7 @@
           :host="host"
           :player-vars="playerVars"
           width="462"
-          height="300"
+          height="230"
           :resize="true"
           :fitParent="true"
         ></youtube>
@@ -71,28 +106,8 @@
   export default {
     name: 'Views',
     created() {
-      //在頁面載入時讀取localStorage裡的狀態資訊
-      if (localStorage.getItem("store")){
-        this.$store.replaceState(Object.assign({}, this.$store.state,JSON.parse(localStorage.getItem("store"))))
-      }
-      //在頁面重新整理時將vuex裡的資訊儲存到localStorage裡
-      window.addEventListener("beforeunload",()=>{
-        localStorage.setItem("store",JSON.stringify(this.$store.state));
-      })
-
-      service.getVideos().then(res => {
-        console.log('get Video: ', res.data);
-        this.video = res.data;
-        let vid1 = res.data.video1.match(/[^/]*$/)[0];
-        let vid2 = res.data.video2.match(/[^/]*$/)[0];
-        let vid3 = res.data.video3.match(/[^/]*$/)[0];
-        let vid4 = res.data.video4.match(/[^/]*$/)[0];
-        let vid5 = res.data.video5.match(/[^/]*$/)[0];
-        let vid6 = res.data.video6.match(/[^/]*$/)[0];
-        let vid7 = res.data.video7.match(/[^/]*$/)[0];
-        let vid8 = res.data.video8.match(/[^/]*$/)[0];
-        this.videoArr = [vid1,vid2,vid3,vid4,vid5,vid6,vid7,vid8];
-      });
+      this.getVideo(this.slug);
+      // console.log(this.process);
     },
     data() {
       return {
@@ -109,7 +124,6 @@
           controls: 0,
           start: 0,
         },
-        videoArr: [],
       };
     },
     methods: {
@@ -147,7 +161,7 @@
     justify-content: space-between;
     align-items: center;
     @include noteBook {
-      // height: calc(150vh - 80px);
+      height: calc(150vh - 80px);
     }
     .youtube {
       width: 100%;
@@ -160,6 +174,7 @@
         // border: 1px solid #979797;
         img {
           width: 100%;
+          height: 125%;
         }
         &:nth-of-type(1) {
           border-left: none;
@@ -176,7 +191,7 @@
       flex-direction: row;
       justify-content: space-around;
       .video {
-        width: 462px;
+        width: 35%;
         height: 300px;
         background: $black;
       }

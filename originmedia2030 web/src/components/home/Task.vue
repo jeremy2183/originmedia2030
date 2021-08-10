@@ -98,16 +98,7 @@
       </div>
     </div>
     <div class="advertise">
-      <div class="box">
-        <img
-          :src="[
-            proceENV === 'production'
-              ? 'https://originmedia2030.com' + get_bottom_img
-              : process + get_bottom_img,
-          ]"
-          alt=""
-        />
-      </div>
+      <div class="box"></div>
       <div class="logo" :style="[proceENV === 'production' ? { background: proCheck(logo_server) } : '']"></div>
     </div>
   </div>
@@ -178,16 +169,6 @@
         logo_server: 'logoblack.e37e1e94'
       };
     },
-    created() {
-      //在頁面載入時讀取localStorage裡的狀態資訊
-      if (localStorage.getItem("store")){
-        this.$store.replaceState(Object.assign({}, this.$store.state,JSON.parse(localStorage.getItem("store"))))
-      }
-      //在頁面重新整理時將vuex裡的資訊儲存到localStorage裡
-      window.addEventListener("beforeunload",()=>{
-        localStorage.setItem("store",JSON.stringify(this.$store.state));
-      })
-    },
     methods: {
       back() {
         this.$router.push('/home');
@@ -231,15 +212,9 @@
       },
     },
     computed: {
-      process() {
-        return process.env.VUE_APP_API_TARGET;
-      },
       proceENV() {
         return process.env.NODE_ENV;
       },
-      get_bottom_img() {
-        return this.$store.state.bottomImg
-      }
     },
   };
 </script>
@@ -251,11 +226,12 @@
     justify-content: space-between;
     align-items: center;
     @include noteBook {
-      // height: calc(150vh - 80px);
+      height: calc(150vh - 80px);
     }
     .top {
       width: 100%;
       display: flex;
+      padding-bottom: 100px;
       .back {
         width: 144px;
         height: 80px;
@@ -497,20 +473,13 @@
       justify-content: center;
       align-items: center;
       .box {
-        width: 720px;
+        width: 1024px;
         height: 200px;
         margin-left: 300px;
         background: #d8d8d8;
         border: 1px solid #979797;
-        img {
-          width: 100%;
-          height: 100%;
-        }
         @include noteBook {
           width: 40vw;
-          img {
-            width: 100%;
-          }
         }
       }
       .logo {

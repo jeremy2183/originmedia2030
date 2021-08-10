@@ -153,7 +153,7 @@
             usd: 200,
           },
         ],
-        logo_server: 'logoblack.e37e1e94'
+        logo_server: 'logo black.00d66722'
       };
     },
     created() {
@@ -202,7 +202,7 @@
     justify-content: space-between;
     align-items: center;
     @include noteBook {
-      // height: calc(150vh - 80px);
+      height: calc(150vh - 80px);
     }
     .buyCoin {
       position: absolute;
@@ -242,9 +242,6 @@
       display: flex;
       justify-content: space-around;
       margin-top: 150px;
-      @include noteBook {
-        margin-top: 50px;
-      }
       .vip {
         position: relative;
         width: 814px;

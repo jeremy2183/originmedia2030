@@ -3,11 +3,23 @@
     <div class="top">
       <div class="youtube">
         <youtube
+          v-if="screenWidth > 1440"
           :video-id="videoId"
           :host="host"
           :player-vars="playerVars"
-          width="460"
-          height="280"
+          width="637.63"
+          height="362"
+          :resize="true"
+          :fitParent="true"
+          @ready="ready"
+        ></youtube>
+        <youtube
+          v-if="screenWidth <= 1440"
+          :video-id="videoId"
+          :host="host"
+          :player-vars="playerVars"
+          width="500"
+          height="330"
           :resize="true"
           :fitParent="true"
           @ready="ready"
@@ -141,9 +153,9 @@
 </script>
 <style lang="scss">
   .login {
-    // padding-bottom: 67px;
+    padding-bottom: 67px;
      @include noteBook {
-       padding-bottom: 20px;
+       padding-bottom: 40px;
      }
     .top {
       display: flex;
@@ -152,13 +164,17 @@
       height: 50vh;
       background-color: $mainRed;
       .youtube {
-        width: 460.56px;
-        height: 280px;
+        width: 637.63px;
+        height: 362px;
+        @include noteBook {
+          width: 500.56px;
+          height: 330px;
+        }
       }
       .logoBox {
         margin-left: 7%;
         .logo {
-          width: 430px;
+          width: 516px;
           height: 226px;
           margin: auto;
           background: url(~@/assets/images/logo.svg) no-repeat center center;
@@ -178,7 +194,7 @@
           @include noteBook {
           }
           &:nth-of-type(1) {
-            margin-top: 34px;
+            margin-top: 54px;
             font-size: 22px;
             @include noteBook {
               margin-top: 24px;
@@ -191,13 +207,11 @@
       }
     }
     .bottom {
+      height: 33vh;
       .box {
         display: flex;
         justify-content: center;
         margin-top: 80px;
-        @include noteBook {
-          margin-top: 50px;
-        }
         div {
           margin: 0 62px;
           cursor: pointer;
