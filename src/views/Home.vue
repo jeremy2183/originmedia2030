@@ -1,10 +1,22 @@
 <template>
   <div class="home">
     <div class="youtube">
-      <div class="video" v-for="video in videoArr" :key=video.id>
-        <a :href="`https://youtu.be/${video}`" target="_blank">
+      <div class="video" v-for="video in getYoutube" :key=video.id>
+        <!-- <a :href="`https://youtu.be/${video}`" target="_blank">
           <img :src="`https://img.youtube.com/vi/${video}/hqdefault.jpg`" alt="">
-        </a>
+        </a> -->
+        <iframe 
+          :src="`https://www.youtube.com/embed/${video}?enablejsapi=1&autoplay=1`" 
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; 
+          autoplay=1; 
+          clipboard-write; 
+          encrypted-media; 
+          gyroscope; 
+          picture-in-picture"
+          allowfullscreen>
+        </iframe>
       </div>
     </div>
     <div class="subscrip">
@@ -70,7 +82,6 @@
     data() {
       return {
         logo_server: 'logoblack.e37e1e94',
-        videoArr: [],
       };
     },
     created() {
@@ -82,20 +93,6 @@
       window.addEventListener("beforeunload",()=>{
         localStorage.setItem("store",JSON.stringify(this.$store.state));
       })
-
-      service.getVideos().then(res => {
-        console.log('get Video: ', res.data);
-        this.video = res.data;
-        let vid1 = res.data.video1.match(/[^/]*$/)[0];
-        let vid2 = res.data.video2.match(/[^/]*$/)[0];
-        let vid3 = res.data.video3.match(/[^/]*$/)[0];
-        let vid4 = res.data.video4.match(/[^/]*$/)[0];
-        let vid5 = res.data.video5.match(/[^/]*$/)[0];
-        let vid6 = res.data.video6.match(/[^/]*$/)[0];
-        let vid7 = res.data.video7.match(/[^/]*$/)[0];
-        let vid8 = res.data.video8.match(/[^/]*$/)[0];
-        this.videoArr = [vid1,vid2,vid3,vid4,vid5,vid6,vid7,vid8];
-      });
     },
     methods: {
       addView() {
@@ -116,7 +113,10 @@
         return process.env.NODE_ENV;
       },
       get_bottom_img() {
-        return this.$store.state.bottomImg
+        return this.$store.state.bottomImg;
+      },
+      getYoutube() {
+        return this.$store.state.YoutuArr;
       }
     }
   };
@@ -128,19 +128,17 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    @include noteBook {
-      // height: calc(150vh - 80px);
-    }
     .youtube {
       width: 100%;
       display: flex;
       .video {
         width: 12.5%;
-        height: 120px;
+        height: 100%;
         background: #d8d8d8;
         // border: 1px solid #979797;
         img {
           width: 100%;
+          vertical-align: middle;
         }
         &:nth-of-type(1) {
           border-left: none;
@@ -148,6 +146,12 @@
         &:nth-of-type(8) {
           border-right: none;
         }
+      }
+      .video iframe,
+      .video object,
+      .video embed {
+        width: 100%;
+        height: 100%;
       }
     }
     .subscrip {

@@ -6,11 +6,10 @@
           :video-id="videoId"
           :host="host"
           :player-vars="playerVars"
-          width="460"
-          height="280"
           :resize="true"
           :fitParent="true"
           @ready="ready"
+          ref="youtube"
         ></youtube>
       </div>
       <div class="logoBox">
@@ -34,23 +33,23 @@
           </figure>
           <p>Android Download</p>
         </div>
-        <div @click="toIOS">
+        <div @click="toFB">
           <figure>
             <img
-              src="@/assets/images/apple.svg"
+              src="@/assets/images/facebook.svg"
               alt="apple"
             >
           </figure>
-          <p>IOS Download</p>
+          <p>官方粉絲團</p>
         </div>
         <div @click="toWindow">
           <figure>
             <img
-              src="@/assets/images/windows.svg"
+              src="@/assets/images/youtube.svg"
               alt="windows"
             >
           </figure>
-          <p>WINDOWS</p>
+          <p>官方Youtube</p>
         </div>
       </div>
       <div class="loginbox">
@@ -89,7 +88,8 @@
       };
     },
     created() {
-      this.getMaq_IMG(this.slug);
+      this.getMaq_IMG(this.slug); //預先取得跑馬燈及廣告圖片
+      this.getYoutebe();  //預先取得8支youtu
     },
     mounted() {
       window.addEventListener("resize", this.resizeHendler);
@@ -101,23 +101,27 @@
       toAndroid() {
         location.href = 'https://play.google.com/store/apps/details?id=com.originmedia2030';
       },
-      toIOS() {
+      toFB() {
         location.href = 'https://www.facebook.com/groups/3108879035836663/?ref=share';
       },
       toWindow() {
-        location.href = 'https://www.facebook.com/101941984887648/posts/101952758219904/?d=n';
+        location.href = 'https://www.youtube.com/channel/UCCDW-mjGWAKvMyPUQUC14hw';
       },
       ready() {
-        // this.$refs.youtube.player.playVideo();
+        this.$refs.youtube.player.playVideo();
       },
       proImg(name) {
         return 'url(' + `/img/${name}.svg` + ') no-repeat center center';
       },
       getMaq_IMG(slug) {
         service.getMaq_IMG(slug).then(res => {
-          this.$store.commit('GET_MARQUEE', res.data.marquee);
-          this.$store.commit('GET_BOTMIMG', res.data.video_bottom_img);
+          this.$store.commit('GET_MARQUEE', res.data.marquee);           // 跑馬燈 
+          this.$store.commit('GET_BOTMIMG', res.data.video_bottom_img);  // 廣告圖
+          // this.$store.commit('GET_HREF', res.data.video_bottom_img_url); // 廣告圖連結
         });
+      },
+      getYoutebe() {
+        this.$store.dispatch("getYoutube");
       },
       resizeHendler() {
         const vm = this;
@@ -152,13 +156,22 @@
       height: 50vh;
       background-color: $mainRed;
       .youtube {
-        width: 460.56px;
-        height: 280px;
+        width: 35%;
+        height: 80%;
+      }
+      .youtube iframe,
+      .youtube object,
+      .youtube embed {
+        // position: absolute;
+        // top: 0;
+        // left: 0;
+        width: 100%;
+        height: 100%;
       }
       .logoBox {
         margin-left: 7%;
         .logo {
-          width: 430px;
+          // width: 430px;
           height: 226px;
           margin: auto;
           background: url(~@/assets/images/logo.svg) no-repeat center center;
@@ -194,10 +207,7 @@
       .box {
         display: flex;
         justify-content: center;
-        margin-top: 80px;
-        @include noteBook {
-          margin-top: 50px;
-        }
+        margin-top: 4%;
         div {
           margin: 0 62px;
           cursor: pointer;
@@ -224,7 +234,7 @@
         }
       }
       .loginbox {
-        margin-top: 74px;
+        margin-top: 4%;
         .btn {
           width: 152px;
           height: 40px;

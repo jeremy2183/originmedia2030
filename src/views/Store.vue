@@ -83,19 +83,19 @@
           </div>
         </div>
         <div class="cow">
-          <figure>
+          <figure @click="toPrincess">
             <img
               src="@/assets/images/support/Princess.png"
               alt=""
             >
           </figure>
-          <figure>
+          <figure @click="toWacow">
             <img
               src="@/assets/images/support/WowCow.png"
               alt=""
             >
           </figure>
-          <figure>
+          <figure @click="toEntertainment">
             <img
               src="@/assets/images/support/Entertainment.png"
               alt=""
@@ -103,7 +103,7 @@
           </figure>
         </div>
         <div class="krone">
-          <figure>
+          <figure @click="toKrone">
             <img
               src="@/assets/images/support/Krone.png"
               alt=""
@@ -178,6 +178,18 @@
       proImg(name) {
         return 'url(' + `/img/${name}.svg` + ') no-repeat center center';
       },
+      toPrincess() {
+        location.href = 'https://www.princessyachts.com.tw/';
+      },
+      toWacow() {
+        location.href = 'https://www.facebook.com/wacow1798/';
+      },
+      toEntertainment() {
+        location.href = 'https://www.facebook.com/101941984887648/posts/101952758219904/?extid=0&d=n';
+      },
+      toKrone() {
+        location.href = 'http://www.krone.com.tw/';
+      }
     },
     computed: {
       process() {

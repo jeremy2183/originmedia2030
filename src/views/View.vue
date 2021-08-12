@@ -1,7 +1,7 @@
 <template>
   <div class="view">
     <div class="youtube">
-      <div class="video" v-for="video in videoArr" :key=video.id>
+      <div class="video" v-for="video in getYoutube" :key=video.id>
         <a :href="`https://youtu.be/${video}`" target="_blank">
           <img :src="`https://img.youtube.com/vi/${video}/hqdefault.jpg`" alt="">
         </a>
@@ -79,20 +79,6 @@
       window.addEventListener("beforeunload",()=>{
         localStorage.setItem("store",JSON.stringify(this.$store.state));
       })
-
-      service.getVideos().then(res => {
-        console.log('get Video: ', res.data);
-        this.video = res.data;
-        let vid1 = res.data.video1.match(/[^/]*$/)[0];
-        let vid2 = res.data.video2.match(/[^/]*$/)[0];
-        let vid3 = res.data.video3.match(/[^/]*$/)[0];
-        let vid4 = res.data.video4.match(/[^/]*$/)[0];
-        let vid5 = res.data.video5.match(/[^/]*$/)[0];
-        let vid6 = res.data.video6.match(/[^/]*$/)[0];
-        let vid7 = res.data.video7.match(/[^/]*$/)[0];
-        let vid8 = res.data.video8.match(/[^/]*$/)[0];
-        this.videoArr = [vid1,vid2,vid3,vid4,vid5,vid6,vid7,vid8];
-      });
     },
     data() {
       return {
@@ -109,7 +95,6 @@
           controls: 0,
           start: 0,
         },
-        videoArr: [],
       };
     },
     methods: {
@@ -135,6 +120,9 @@
       },
       get_bottom_img() {
         return this.$store.state.bottomImg
+      },
+      getYoutube() {
+        return this.$store.state.YoutuArr;
       }
     },
   };
