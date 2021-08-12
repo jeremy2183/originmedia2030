@@ -133,13 +133,13 @@
             date: '2020-08-1002:47:35 (UTC)',
             completed: false,
           },
-          {
-            id: 3,
-            sec: 600,
-            view: 32,
-            date: '2020-09-1002:47:35 (UTC)',
-            completed: false,
-          },
+          // {
+          //   id: 3,
+          //   sec: 600,
+          //   view: 32,
+          //   date: '2020-09-1002:47:35 (UTC)',
+          //   completed: false,
+          // },
           // {
           //   id: 4,
           //   sec: 600,

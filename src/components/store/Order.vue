@@ -1,5 +1,6 @@
 <template>
   <div class="order">
+    <div class="fake"></div>
     <div class="top">
       <div
         class="back"
@@ -72,8 +73,17 @@
       </div>
     </div>
     <div class="advertise">
-      <div class="box"></div>
-      <div class="logo"></div>
+      <div class="box">
+        <img
+          :src="[
+            proceENV === 'production'
+              ? 'https://originmedia2030.com' + get_bottom_img
+              : process + get_bottom_img,
+          ]"
+          alt=""
+        />
+      </div>
+      <div class="logo" :style="[proceENV === 'production' ? { background: proCheck(logo_server) } : '']"></div>
     </div>
   </div>
 </template>
@@ -86,13 +96,38 @@
         bankCode: 807,
         bankID: 123456789012,
         pay: 150,
+        logo_server: 'logoblack.e37e1e94'
       };
+    },
+    created() {
+      //在頁面載入時讀取localStorage裡的狀態資訊
+      if (localStorage.getItem("store")){
+        this.$store.replaceState(Object.assign({}, this.$store.state,JSON.parse(localStorage.getItem("store"))))
+      }
+      //在頁面重新整理時將vuex裡的資訊儲存到localStorage裡
+      window.addEventListener("beforeunload",()=>{
+        localStorage.setItem("store",JSON.stringify(this.$store.state));
+      })
     },
     methods: {
       back() {
         this.$router.push('/store');
       },
+      proCheck(name) {
+        return 'url(' + `/img/${name}.svg` + ') no-repeat center center';
+      },
     },
+    computed: {
+      process() {
+        return process.env.VUE_APP_API_TARGET;
+      },
+      proceENV() {
+        return process.env.NODE_ENV;
+      },
+      get_bottom_img() {
+        return this.$store.state.bottomImg
+      }
+    }
   };
 </script>
 <style lang="scss" scoped>
@@ -102,8 +137,8 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    @include noteBook {
-      height: calc(150vh - 80px);
+    .fake {
+      width: 100%;
     }
     .top {
       width: 100%;
@@ -114,7 +149,6 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        margin-top: 1.9%;
         margin-left: 1.9%;
         background: #ffffff;
         box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
@@ -140,11 +174,12 @@
         border: 6px solid #ffffff;
         box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
         border-radius: 22.8px;
-        margin-top: 1.9%;
+        // margin-top: 1.9%;
         margin-left: 17%;
         @include noteBook {
-          width: 65%;
-          margin-left: 4%;
+          width: 55%;
+          height: 460px;
+          margin-left: 8%;
         }
         .border {
           width: 100%;
@@ -155,17 +190,30 @@
           background: #ffffff;
           border: 2px solid #c62828;
           border-radius: 22.8px;
+          @include noteBook {
+            height: 450px;
+            padding-left: 20px;
+          }
           .list {
             width: 250px;
             height: 520px;
+            @include noteBook {
+              height: auto;
+            }
             div {
               &:not(:nth-of-type(1)) {
                 margin-top: 18px;
+                @include noteBook {
+                  margin-top: 10px;
+                }
               }
               .title {
                 font-size: 24px;
                 color: $subRed;
                 font-weight: 550;
+                @include noteBook {
+                  font-size: 18px;
+                }
               }
               .input {
                 width: 100%;
@@ -180,6 +228,10 @@
                 font-weight: 400;
                 padding-left: 10px;
                 outline: 0;
+                @include noteBook {
+                  height: 30px;
+                  font-size: 16px;
+                }
               }
             }
           }
@@ -200,6 +252,9 @@
                 text-align: center;
                 line-height: 47px;
                 font-weight: 550;
+                @include noteBook {
+                  font-size: 28px;
+                }
               }
               h5 {
                 font-size: 24px;
@@ -208,6 +263,9 @@
                 text-align: center;
                 line-height: 36px;
                 font-weight: 500;
+                @include noteBook {
+                  font-size: 20px;
+                }
               }
             }
             .dateBox {
@@ -224,6 +282,9 @@
                 letter-spacing: 2.29px;
                 text-align: center;
                 font-weight: 550;
+                @include noteBook {
+                  font-size: 20px;
+                }
                 &:nth-of-type(2) {
                   font-size: 32px;
                   color: #c62828;
@@ -231,6 +292,9 @@
                   text-align: center;
                   font-weight: 550;
                   margin: 16px 0;
+                  @include noteBook {
+                    font-size: 28px;
+                  }
                 }
               }
             }
@@ -249,8 +313,15 @@
         margin-left: 300px;
         background: #d8d8d8;
         border: 1px solid #979797;
+        img {
+          width: 100%;
+          height: 100%;
+        }
         @include noteBook {
           width: 40vw;
+          img {
+            width: 100%;
+          }
         }
       }
       .logo {
@@ -258,8 +329,11 @@
         width: 300px;
         height: 150px;
         left: 20px;
-        // background: url('~@/assets/images/logo black.svg') no-repeat center center;
-        background: url('/img/logo black.00d66722.svg') no-repeat center center; //build用
+        background: url('~@/assets/images/logoblack.svg') no-repeat center center;
+        // background: url('/img/logo black.00d66722.svg') no-repeat center center; //build用
+        @include noteBook {
+          width: 280px;
+        }
       }
     }
   }

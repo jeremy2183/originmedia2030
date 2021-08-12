@@ -47,9 +47,6 @@
       height: 100vh;
       background: rgba(0, 0, 0, 0.4);
       z-index: 8;
-      @include noteBook {
-        height: 150vh;
-      }
     }
   }
 </style>

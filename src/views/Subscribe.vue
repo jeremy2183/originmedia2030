@@ -1,5 +1,6 @@
 <template>
   <div class="subscribe">
+    <div class="fake"></div>
     <div class="channel">
       <div class="idbox">
         <div class="id">
@@ -77,11 +78,14 @@
     height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;
-    // justify-content: space-between;
-    justify-content: flex-end;
+    justify-content: space-between;
+    // justify-content: flex-end;
     // align-items: center;
     @include noteBook {
       // height: calc(150vh - 80px);
+    }
+    .fake {
+      width: 100%;
     }
     .channel {
       width: 100%;
@@ -89,25 +93,26 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      margin-bottom: 100px;
+      // margin-bottom: 100px;
       @include noteBook {
-        margin-bottom: 50px;
+        // margin-bottom: 50px;
       }
       .idbox {
         position: relative;
         width: 624px;
-        height: 320px;
+        height: 400px;
         background: #ffffff;
         border: 5px solid #ffffff;
         box-shadow: 0 8px 8px 0 rgba(198, 40, 40, 0.2), 0 0 8px 0 rgba(198, 40, 40, 0.2);
         border-radius: 46px;
         @include noteBook {
           width: 40%;
+          height: 360px;
         }
         .id {
           position: absolute;
           width: 614px;
-          height: 310px;
+          height: 390px;
           display: flex;
           justify-content: space-around;
           align-items: center;
@@ -116,6 +121,7 @@
           border-radius: 46px;
           @include noteBook {
             width: 100%;
+            height: 350px;
           }
           .icon {
             width: 126px;
@@ -130,6 +136,9 @@
           .info {
             width: 316px;
             height: 162px;
+            @include noteBook {
+              width: 270px;
+            }
             .title {
               font-size: 24px;
               color: #737373;
@@ -149,25 +158,29 @@
       .sub {
         width: 624px;
         height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
         background: #fafafa;
         box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+        padding: 3% 0;
         @include noteBook {
           width: 45%;
+          height: 360px;
         }
         .text {
           width: 406px;
           height: 194px;
-          margin: auto;
-          margin-top: 62.58px;
+          margin: 0 auto;
           font-size: 16px;
           color: #7f7f7f;
           letter-spacing: 1.52px;
           line-height: 30px;
           font-weight: 500;
+          // margin-top: 5%;
         }
         .btnbox {
           display: flex;
-          margin-top: 40px;
           justify-content: center;
           button {
             width: 92px;

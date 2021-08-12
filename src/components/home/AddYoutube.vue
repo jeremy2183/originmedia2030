@@ -42,7 +42,7 @@
         @click="confirmSec"
       >選擇</p>
     </div>
-    <div class="top">
+    <div class="tops">
       <div
         class="back"
         @click="back"
@@ -93,17 +93,32 @@
           </div>
         </div>
       </div>
+      <div class="advertise">
+        <div class="box">
+          <img
+          :src="[
+            proceENV === 'production'
+              ? 'https://originmedia2030.com' + get_bottom_img
+              : process + get_bottom_img,
+          ]"
+          alt=""
+        />
+        </div>
+        <div class="logo" :style="[proceENV === 'production' ? { background: proImg(logo_server) } : '']"></div>
+      </div>
     </div>
-    <div class="advertise">
+    <!-- <div class="advertise">
       <div class="box"></div>
       <div class="logo"></div>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
   export default {
     data() {
-      return {};
+      return {
+        logo_server: 'logoblack.e37e1e94'
+      };
     },
     methods: {
       back() {
@@ -128,6 +143,9 @@
       success() {
         this.$router.push('/home/task');
       },
+      proImg(name) {
+        return 'url(' + `/img/${name}.svg` + ') no-repeat center center';
+      },
     },
     computed: {
       mask() {
@@ -139,6 +157,15 @@
       secBox() {
         return this.$store.state.sec;
       },
+      process() {
+        return process.env.VUE_APP_API_TARGET;
+      },
+      proceENV() {
+        return process.env.NODE_ENV;
+      },
+      get_bottom_img() {
+        return this.$store.state.bottomImg
+      }
     },
   };
 </script>
@@ -150,7 +177,7 @@
     justify-content: space-between;
     align-items: center;
     @include noteBook {
-      height: calc(150vh - 80px);
+      // height: calc(150vh - 80px);
     }
     .openview {
       position: absolute;
@@ -254,8 +281,12 @@
         cursor: pointer;
       }
     }
-    .top {
+    .tops {
       width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       .back {
         width: 130.88px;
         height: 80px;
@@ -283,15 +314,17 @@
       }
       .views {
         width: 100%;
-        height: 340px;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        margin-top: 100px;
+        // margin-top: 100px;
         .video {
           width: 38%;
           height: 380px;
           background: $black;
+          @include noteBook {
+            height: 300px;
+          }
         }
         .box {
           width: 55%;
@@ -300,6 +333,10 @@
           display: flex;
           justify-content: space-around;
           align-items: center;
+          @include noteBook {
+            height: 300px;
+            align-items: flex-end;
+          }
           .setting {
             width: 343px;
             height: 280px;
@@ -383,6 +420,7 @@
               cursor: pointer;
               @include noteBook {
                 width: 100%;
+                margin-top: 20.75px;
               }
             }
           }
@@ -434,8 +472,15 @@
         margin-left: 300px;
         background: #d8d8d8;
         border: 1px solid #979797;
+        img {
+          width: 100%;
+          height: 100%;
+        }
         @include noteBook {
           width: 40vw;
+          img {
+            width: 100%;
+          }
         }
       }
       .logo {
@@ -443,7 +488,7 @@
         width: 300px;
         height: 150px;
         left: 20px;
-        background: url('~@/assets/images/logo black.svg') no-repeat center center;
+        background: url('~@/assets/images/logoblack.svg') no-repeat center center;
         @include noteBook {
           width: 280px;
         }

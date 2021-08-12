@@ -13,6 +13,7 @@
         <span @click="confirm">確認</span>
       </div>
     </div>
+    <div class="fake"></div>
     <div class="storeBox">
       <div class="vip">
         <div class="border">
@@ -237,13 +238,16 @@
         }
       }
     }
+    .fake {
+      width: 100%;
+    }
     .storeBox {
       width: 100%;
       display: flex;
       justify-content: space-around;
-      margin-top: 150px;
+      // margin-top: 150px;
       @include noteBook {
-        margin-top: 50px;
+        // margin-top: 50px;
       }
       .vip {
         position: relative;

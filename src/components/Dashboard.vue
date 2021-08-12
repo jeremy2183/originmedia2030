@@ -134,10 +134,7 @@
         ul {
           li {
             &:not(:nth-of-type(1)) {
-              margin-top: 60px;
-              @include noteBook {
-                margin-top: 30px;
-              }
+              margin-top: 30px;
             }
             &:hover {
               cursor: pointer;

@@ -99,7 +99,6 @@
     },
     methods: {
       addView() {
-        console.log('view');
         this.$router.push('/home/task');
       },
       subScribe() {
