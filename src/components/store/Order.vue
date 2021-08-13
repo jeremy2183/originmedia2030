@@ -13,11 +13,11 @@
         <div class="border">
           <div class="list">
             <div>
-              <div class="title">訂單號</div>
+              <div class="title">帳戶名稱</div>
               <input
                 class="input"
                 type="text"
-                v-model="num_order"
+                v-model="name_order"
                 disabled
               >
             </div>
@@ -60,13 +60,21 @@
           </div>
           <div class="attention">
             <div class="zhuyi">
-              <h4>注意</h4>
+              <h4>注意
+                <img src="@/assets/images/icon/attention.svg" alt="">
+              </h4>
               <h5>Attention!!!</h5>
             </div>
             <div class="dateBox">
-              <span>交易有效期限為</span>
-              <span>2021/07/20 16:19:08</span>
-              <span>請在期限內轉帳完成</span>
+              <span>此交易屬消費行為在您匯款前請確認是否需要此商品</span>
+              <span>該商品售出概不退</span>
+              <span>如有商品的任何疑問</span>
+              <span class="line-Pic">或者匯款後有商品的相關資訊及問題請洽
+                <img src="@/assets/images/icon/line2.svg" alt="">
+              </span>
+              <span>Line : yao5052014</span>
+              <!-- <span>2021/07/20 16:19:08</span>
+              <span>請在期限內轉帳完成</span> -->
             </div>
           </div>
         </div>
@@ -91,10 +99,10 @@
   export default {
     data() {
       return {
-        num_order: 1234567890,
-        bankName: '永豐銀行',
-        bankCode: 807,
-        bankID: 123456789012,
+        name_order: '林思延',
+        bankName: '合作金庫銀行',
+        bankCode: '006',
+        bankID: '0490872156221',
         pay: 150,
         logo_server: 'logoblack.e37e1e94'
       };
@@ -243,6 +251,7 @@
             justify-content: center;
             align-items: center;
             .zhuyi {
+              position: relative;
               width: 160px;
               height: 93px;
               h4 {
@@ -267,6 +276,12 @@
                   font-size: 20px;
                 }
               }
+              img {
+                position: absolute;
+                top: 7%;
+                right: 5%;
+                width: 20%;
+              }
             }
             .dateBox {
               width: 365px;
@@ -275,7 +290,7 @@
               flex-direction: column;
               justify-content: space-around;
               align-items: center;
-              margin-top: 18px;
+              margin-top: 10%;
               span {
                 font-size: 24px;
                 color: #7f7f7f;
@@ -285,16 +300,21 @@
                 @include noteBook {
                   font-size: 20px;
                 }
-                &:nth-of-type(2) {
-                  font-size: 32px;
-                  color: #c62828;
-                  letter-spacing: 2px;
-                  text-align: center;
-                  font-weight: 550;
-                  margin: 16px 0;
-                  @include noteBook {
-                    font-size: 28px;
-                  }
+                // &:nth-of-type(2) {
+                //   font-size: 32px;
+                //   color: #c62828;
+                //   letter-spacing: 2px;
+                //   text-align: center;
+                //   font-weight: 550;
+                //   margin: 16px 0;
+                //   @include noteBook {
+                //     font-size: 28px;
+                //   }
+                // }
+              }
+              .line-Pic {
+                img {
+                  width: 7%;
                 }
               }
             }
@@ -308,7 +328,7 @@
       justify-content: center;
       align-items: center;
       .box {
-        width: 1024px;
+        width: 720px;
         height: 200px;
         margin-left: 300px;
         background: #d8d8d8;

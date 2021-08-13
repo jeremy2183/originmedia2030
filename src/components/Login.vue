@@ -177,10 +177,9 @@
           background: url(~@/assets/images/logo.svg) no-repeat center center;
           // background: url('/img/logo.c0bcc1c2.svg'); // build用
           background-size: 100%;
-          @include noteBook {
-            width: 430px;
-            // height: 220px;
-          }
+          // @include noteBook {
+          //   width: 430px;
+          // }
         }
         p {
           letter-spacing: 0;

@@ -467,7 +467,7 @@
       justify-content: center;
       align-items: center;
       .box {
-        width: 1024px;
+        width: 720px;
         height: 200px;
         margin-left: 300px;
         background: #d8d8d8;

@@ -5,17 +5,19 @@
         <!-- <a :href="`https://youtu.be/${video}`" target="_blank">
           <img :src="`https://img.youtube.com/vi/${video}/hqdefault.jpg`" alt="">
         </a> -->
-        <iframe 
-          :src="`https://www.youtube.com/embed/${video}?enablejsapi=1&autoplay=1`" 
-          title="YouTube video player" 
-          frameborder="0" 
+        <iframe
+          :src="`https://www.youtube.com/embed/${video}?enablejsapi=1&autoplay=1&mute=true`"
+          title="YouTube video player"
+          frameborder="0"
           allow="accelerometer; 
-          autoplay=1; 
+          autoplay; 
           clipboard-write; 
           encrypted-media; 
           gyroscope; 
           picture-in-picture"
-          allowfullscreen>
+          allowfullscreen
+          ref="youtube"
+        >
         </iframe>
       </div>
     </div>
@@ -69,7 +71,10 @@
           alt=""
         />
       </div>
-      <div class="logo" :style="[proceENV === 'production' ? { background: proImg(logo_server) } : '']"></div>
+      <div
+        class="logo"
+        :style="[proceENV === 'production' ? { background: proImg(logo_server) } : '']"
+      ></div>
     </div>
   </div>
 </template>
@@ -86,13 +91,13 @@
     },
     created() {
       //在頁面載入時讀取localStorage裡的狀態資訊
-      if (localStorage.getItem("store")){
-        this.$store.replaceState(Object.assign({}, this.$store.state,JSON.parse(localStorage.getItem("store"))))
+      if (localStorage.getItem('store')) {
+        this.$store.replaceState(Object.assign({}, this.$store.state, JSON.parse(localStorage.getItem('store'))));
       }
       //在頁面重新整理時將vuex裡的資訊儲存到localStorage裡
-      window.addEventListener("beforeunload",()=>{
-        localStorage.setItem("store",JSON.stringify(this.$store.state));
-      })
+      window.addEventListener('beforeunload', () => {
+        localStorage.setItem('store', JSON.stringify(this.$store.state));
+      });
     },
     methods: {
       addView() {
@@ -117,8 +122,8 @@
       },
       getYoutube() {
         return this.$store.state.YoutuArr;
-      }
-    }
+      },
+    },
   };
 </script>
 <style lang="scss" scoped>

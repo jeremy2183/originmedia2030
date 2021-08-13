@@ -2,9 +2,23 @@
   <div class="view">
     <div class="youtube">
       <div class="video" v-for="video in getYoutube" :key=video.id>
-        <a :href="`https://youtu.be/${video}`" target="_blank">
+        <!-- <a :href="`https://youtu.be/${video}`" target="_blank">
           <img :src="`https://img.youtube.com/vi/${video}/hqdefault.jpg`" alt="">
-        </a>
+        </a> -->
+        <iframe
+          :src="`https://www.youtube.com/embed/${video}?enablejsapi=1&autoplay=1&mute=true`"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; 
+          autoplay; 
+          clipboard-write; 
+          encrypted-media; 
+          gyroscope; 
+          picture-in-picture"
+          allowfullscreen
+          ref="youtube"
+        >
+        </iframe>
       </div>
     </div>
     <div class="views">
@@ -143,11 +157,12 @@
       // border: 1px solid red;
       .video {
         width: 12.5%;
-        height: 120px;
+        height: 100%;
         background: #d8d8d8;
         // border: 1px solid #979797;
         img {
           width: 100%;
+          vertical-align: middle;
         }
         &:nth-of-type(1) {
           border-left: none;
@@ -155,6 +170,12 @@
         &:nth-of-type(8) {
           border-right: none;
         }
+      }
+      .video iframe,
+      .video object,
+      .video embed {
+        width: 100%;
+        height: 100%;
       }
     }
     .views {

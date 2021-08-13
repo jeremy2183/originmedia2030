@@ -70,12 +70,9 @@
         </div>
       </div>
       <div class="cooperation">
-        <div class="line">
+        <div class="line" @click="toFB">
           <figure>
-            <img
-              src="@/assets/images/icon/line.svg"
-              alt=""
-            >
+            <i class="fab fa-facebook"></i>
           </figure>
           <div>
             <span>加入群組團聊最新資訊</span>
@@ -177,6 +174,9 @@
       },
       proImg(name) {
         return 'url(' + `/img/${name}.svg` + ') no-repeat center center';
+      },
+      toFB() {
+        location.href = 'https://www.facebook.com/groups/3108879035836663/?ref=share';
       },
       toPrincess() {
         location.href = 'https://www.princessyachts.com.tw/';
@@ -440,6 +440,10 @@
             margin-right: 8px;
             img {
               width: 100%;
+            }
+            svg {
+              color: #1877F2;
+              font-size: 45px;
             }
           }
           div {
