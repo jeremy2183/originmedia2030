@@ -6,7 +6,7 @@
           <img :src="`https://img.youtube.com/vi/${video}/hqdefault.jpg`" alt="">
         </a> -->
         <iframe
-          :src="`https://www.youtube.com/embed/${video}?enablejsapi=1&autoplay=1&mute=true`"
+          :src="`https://www.youtube.com/embed/${video}?enablejsapi=1&autoplay=1&loop=1&playlist=${video}&mute=true`"
           title="YouTube video player"
           frameborder="0"
           allow="accelerometer; 
@@ -71,10 +71,30 @@
           alt=""
         />
       </div>
-      <div
+      <div class="box">
+        <img
+          :src="[
+            proceENV === 'production'
+              ? 'https://originmedia2030.com' + get_bottom_img
+              : process + get_bottom_img,
+          ]"
+          alt=""
+        />
+      </div>
+      <div class="box">
+        <img
+          :src="[
+            proceENV === 'production'
+              ? 'https://originmedia2030.com' + get_bottom_img
+              : process + get_bottom_img,
+          ]"
+          alt=""
+        />
+      </div>
+      <!-- <div
         class="logo"
         :style="[proceENV === 'production' ? { background: proImg(logo_server) } : '']"
-      ></div>
+      ></div> -->
     </div>
   </div>
 </template>
@@ -265,17 +285,19 @@
       justify-content: center;
       align-items: center;
       .box {
-        width: 720px;
-        height: 200px;
-        margin-left: 300px;
+        width: 33.33%;
+        // height: 200px;
+        // margin-left: 300px;
         background: #d8d8d8;
         border: 1px solid #979797;
         img {
           width: 100%;
           height: 100%;
+          vertical-align: middle;
         }
         @include noteBook {
-          width: 40vw;
+          // width: 40vw;
+          // width: 33.33%;
           img {
             width: 100%;
           }

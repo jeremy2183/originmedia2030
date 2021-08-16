@@ -5,6 +5,11 @@
   flex-direction: $direction;
 }
 
+@mixin TV {
+  @media (min-width: 2561px) {
+    @content;
+  }
+}
 @mixin scottPC {
   @media (max-width: 2561px) and (min-height: 1080px) {
     @content;

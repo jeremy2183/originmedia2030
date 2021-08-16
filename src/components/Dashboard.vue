@@ -111,7 +111,7 @@
           width: 40px;
           height: 40px;
           margin: auto;
-          border-radius: 25px;
+          border-radius: 50px;
           text-align: center;
           background: #d8d8d8;
           padding-top: 5px;
@@ -120,6 +120,11 @@
             height: 80%;
             color: #828282;
           }
+          @include TV {
+            width: 70px;
+            height: 70px;
+            // border: 1px solid red;
+          }
         }
         .username {
           font-size: 14px;
@@ -127,6 +132,9 @@
           text-align: center;
           font-weight: 400;
           margin-top: 8px;
+          @include TV {
+            font-size: 26px;
+          }
         }
       }
       .view {
@@ -135,6 +143,9 @@
           li {
             &:not(:nth-of-type(1)) {
               margin-top: 30px;
+              @include TV {
+                margin-top: 60px;
+              }
             }
             &:hover {
               cursor: pointer;
@@ -163,6 +174,10 @@
         .icon0,.icon1,.icon2,.icon3 {
           width: 64px;
           height: 64px;
+          @include TV {
+            width: 74px;
+            height: 74px;
+          }
           @include noteBook {
             width: 48px;
             height: 48px;
@@ -218,6 +233,9 @@
           text-align: center;
           font-weight: 400;
           margin-top: 8px;
+          @include TV {
+            font-size: 26px;
+          }
         }
         img {
           width: 100%;
@@ -228,7 +246,8 @@
         bottom: 32px;
         display: flex;
         align-items: center;
-        margin-top: 90px;
+        // margin-top: 90px;
+        margin-top: 50%;
         cursor: pointer;
         .icon {
           width: 32px;
@@ -244,6 +263,15 @@
           text-align: center;
           font-weight: 400;
           margin-left: 12px;
+        }
+        @include TV {
+          .icon {
+           width: 64px;
+            height: 64px;
+          }
+          span {
+            font-size: 26px;
+          }
         }
       }
     }
@@ -261,9 +289,9 @@
       // overflow-y: auto;
       background-color: #f1f5f8;
       // border: 1px solid red;
-      @include noteBook {
-        width: 90%;
-      }
+      // @include noteBook {
+      //   width: 90%;
+      // }
     }
   }
 </style>

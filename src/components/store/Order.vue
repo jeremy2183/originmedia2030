@@ -91,7 +91,27 @@
           alt=""
         />
       </div>
-      <div class="logo" :style="[proceENV === 'production' ? { background: proCheck(logo_server) } : '']"></div>
+      <div class="box">
+        <img
+          :src="[
+            proceENV === 'production'
+              ? 'https://originmedia2030.com' + get_bottom_img
+              : process + get_bottom_img,
+          ]"
+          alt=""
+        />
+      </div>
+      <div class="box">
+        <img
+          :src="[
+            proceENV === 'production'
+              ? 'https://originmedia2030.com' + get_bottom_img
+              : process + get_bottom_img,
+          ]"
+          alt=""
+        />
+      </div>
+      <!-- <div class="logo" :style="[proceENV === 'production' ? { background: proCheck(logo_server) } : '']"></div> -->
     </div>
   </div>
 </template>
@@ -323,22 +343,22 @@
       }
     }
     .advertise {
-      width: 96%;
+      // width: 96%;
       display: flex;
       justify-content: center;
       align-items: center;
       .box {
-        width: 720px;
-        height: 200px;
-        margin-left: 300px;
+        width: 33.33%;
+        // height: 200px;
         background: #d8d8d8;
         border: 1px solid #979797;
         img {
           width: 100%;
           height: 100%;
+          vertical-align: middle;
         }
         @include noteBook {
-          width: 40vw;
+          // width: 40vw;
           img {
             width: 100%;
           }
